@@ -1153,7 +1153,8 @@ def generate_clinical_report():
         }
         counterfactual = "Timely adherence to clinical intervention protocol and scheduled 4-week follow-up decreases complication escalation trajectory by 81.5%."
         recommendation = "Adaptive QuantaMed clinical protocol completed. Secondary validation indicated prior to invasive treatment. Follow-up scheduled in accordance with NABL ISO 15189:2022 standards."
-
+
+
     else:
         # HIV-TB Co-Infection
         facility = "National Infectious Diseases Institute & WHO Dual Flagship Apex Centre"
@@ -1359,9 +1360,10 @@ def download_clinical_report_pdf():
         req_data = request.args.to_dict()
 
     rep_obj = req_data.get("report")
-    if not rep_obj:
-        # If caller posted fresh patient/modality payload or if cache missing
-        if request.method == "POST" or not LAST_GENERATED_REPORT:
+    if not rep_obj or not isinstance(rep_obj, dict):
+        if any(k in req_data for k in ["patient", "findings", "modality", "doctor_view"]):
+            rep_obj = dict(req_data)
+        elif request.method == "POST" or not LAST_GENERATED_REPORT:
             generate_clinical_report()
             rep_obj = LAST_GENERATED_REPORT
         else:
@@ -1371,10 +1373,10 @@ def download_clinical_report_pdf():
             else:
                 generate_clinical_report()
                 rep_obj = LAST_GENERATED_REPORT
-
-    if not rep_obj or not isinstance(rep_obj, dict):
-        generate_clinical_report()
-        rep_obj = LAST_GENERATED_REPORT
+    else:
+        for k in ["input_image_url", "gradcam_url", "scan_quality", "doctor_view", "domain", "modality", "workflow_status"]:
+            if k in req_data and k not in rep_obj:
+                rep_obj[k] = req_data[k]
 
     pdf_bytes = pdf_engine.build_pdf(rep_obj)
     domain_clean = rep_obj.get("domain", "Clinical").replace(" ", "_").replace("/", "_")

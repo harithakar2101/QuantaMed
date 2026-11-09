@@ -4821,59 +4821,95 @@
           </div>
 
 
+          <!-- Quick Archetype Presets Bar (Phase 3 Canonical Benchmarks) -->
+          <div class="p-3.5 rounded-2xl bg-slate-950/90 border border-cyan-900/60 space-y-2">
+            <div class="flex flex-wrap items-center justify-between gap-1">
+              <span class="text-xs font-bold text-cyan-300 flex items-center">
+                <i class="fa-solid fa-flask-vial text-cyan-400 mr-2"></i> 6 Canonical Synthetic Case Archetypes (TECHgium 2026 Test Suite):
+              </span>
+              <span class="text-[10px] text-slate-400 font-mono">100% Synthetic &bull; Deterministic &bull; Zero PII</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-[11px]">
+              <button onclick="loadSyntheticCaseArchetype('fundus')" class="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-cyan-800/80 text-cyan-300 font-bold text-left transition-all cursor-pointer">
+                <div class="text-[10px] text-cyan-400 uppercase font-mono">01 Abnormal</div>
+                <div class="truncate text-white font-bold">Kamala (Fundus)</div>
+              </button>
+              <button onclick="loadSyntheticCaseArchetype('chest_xray')" class="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-emerald-800/80 text-emerald-300 font-bold text-left transition-all cursor-pointer">
+                <div class="text-[10px] text-emerald-400 uppercase font-mono">02 Normal</div>
+                <div class="truncate text-white font-bold">Arvind (CXR)</div>
+              </button>
+              <button onclick="loadSyntheticCaseArchetype('breast_us')" class="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-purple-800/80 text-purple-300 font-bold text-left transition-all cursor-pointer">
+                <div class="text-[10px] text-purple-400 uppercase font-mono">03 Borderline</div>
+                <div class="truncate text-white font-bold">Meera (Breast)</div>
+              </button>
+              <button onclick="loadSyntheticCaseArchetype('oct')" class="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-amber-800/80 text-amber-300 font-bold text-left transition-all cursor-pointer">
+                <div class="text-[10px] text-amber-400 uppercase font-mono">04 Retake</div>
+                <div class="truncate text-white font-bold">Ramesh (OCT)</div>
+              </button>
+              <button onclick="loadSyntheticCaseArchetype('ecg')" class="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-orange-800/80 text-orange-300 font-bold text-left transition-all cursor-pointer">
+                <div class="text-[10px] text-orange-400 uppercase font-mono">05 OOD Noise</div>
+                <div class="truncate text-white font-bold">Ananya (ECG)</div>
+              </button>
+              <button onclick="loadSyntheticCaseArchetype('head_ct')" class="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-rose-800/80 text-rose-300 font-bold text-left transition-all cursor-pointer">
+                <div class="text-[10px] text-rose-400 uppercase font-mono">06 Critical</div>
+                <div class="truncate text-white font-bold">Gurpreet (CT)</div>
+              </button>
+            </div>
+          </div>
+
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="adp-patient-select-grid">
-            <div onclick="selectWizardPatient('fundus')" class="p-4 rounded-xl bg-slate-900 border border-cyan-800/60 hover:border-cyan-400 transition-all cursor-pointer">
+            <div onclick="loadSyntheticCaseArchetype('fundus')" class="p-4 rounded-xl bg-slate-900 border border-cyan-800/60 hover:border-cyan-400 transition-all cursor-pointer">
               <div class="flex items-center justify-between">
                 <span class="font-bold text-white text-xs">Smt. Kamala Devi (62F)</span>
-                <span class="text-[10px] font-mono text-cyan-400">Ophthalmology</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">Clear Abnormal</span>
               </div>
-              <p class="text-[11px] text-slate-400 mt-1">T2DM x 14 yrs, HbA1c 8.8%, blurred central vision OD.</p>
-              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 48-2910-4829-1920@abdm</div>
+              <p class="text-[11px] text-slate-300 mt-1.5">Moderate NPDR with Clinically Significant Macular Edema (CSME), HbA1c 8.8%.</p>
+              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 48-2910-4829-1920@abdm &bull; Fundus</div>
             </div>
 
-            <div onclick="selectWizardPatient('oct')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-teal-400 transition-all cursor-pointer">
+            <div onclick="loadSyntheticCaseArchetype('chest_xray')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-400 transition-all cursor-pointer">
               <div class="flex items-center justify-between">
-                <span class="font-bold text-white text-xs">Ramesh Chandra (69M)</span>
-                <span class="text-[10px] font-mono text-teal-400">Retina OCT</span>
+                <span class="font-bold text-white text-xs">Shri Arvind Nambisan (34M)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">Normal Case</span>
               </div>
-              <p class="text-[11px] text-slate-400 mt-1">Progressive central metamorphopsia OS x 3 months.</p>
-              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 31-8902-1920-3301@abdm</div>
+              <p class="text-[11px] text-slate-300 mt-1.5">Executive pre-employment clearance. Clear bilateral parenchyma, CTR 0.44.</p>
+              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 82-1029-4820-5591@abdm &bull; Chest X-ray</div>
             </div>
 
-            <div onclick="selectWizardPatient('ecg')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-rose-400 transition-all cursor-pointer">
+            <div onclick="loadSyntheticCaseArchetype('breast_us')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-purple-400 transition-all cursor-pointer">
               <div class="flex items-center justify-between">
-                <span class="font-bold text-white text-xs">Vikramaditya Sen (57M)</span>
-                <span class="text-[10px] font-mono text-rose-400">Cardiology</span>
+                <span class="font-bold text-white text-xs">Smt. Meera Swaminathan (51F)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-800">Borderline / Equivocal</span>
               </div>
-              <p class="text-[11px] text-slate-400 mt-1">Crushing retrosternal chest pain x 45 min, diaphoresis.</p>
-              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 19-4820-9921-1029@abdm</div>
+              <p class="text-[11px] text-slate-300 mt-1.5">BI-RADS 3/4A equivocal nodule, left breast 10 o'clock position (18.4 mm).</p>
+              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 71-5501-8891-2309@abdm &bull; Breast US</div>
             </div>
 
-            <div onclick="selectWizardPatient('chest_xray')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-sky-400 transition-all cursor-pointer">
+            <div onclick="loadSyntheticCaseArchetype('oct')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-400 transition-all cursor-pointer">
               <div class="flex items-center justify-between">
-                <span class="font-bold text-white text-xs">Ananya Mukherjee (46F)</span>
-                <span class="text-[10px] font-mono text-sky-400">Pulmonology</span>
+                <span class="font-bold text-white text-xs">Shri Ramesh Chandra (69M)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">Poor Quality Retake</span>
               </div>
-              <p class="text-[11px] text-slate-400 mt-1">Productive cough x 3 weeks, low pyrexia, hemoptysis streaks.</p>
-              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 82-1029-4820-5591@abdm</div>
+              <p class="text-[11px] text-slate-300 mt-1.5">Severe involuntary motion blur (Laplacian 28.4 &lt; 45.0) &rarr; Retake Advisory.</p>
+              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 31-8902-1920-3301@abdm &bull; Retina OCT</div>
             </div>
 
-            <div onclick="selectWizardPatient('breast_us')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-purple-400 transition-all cursor-pointer">
+            <div onclick="loadSyntheticCaseArchetype('ecg')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-orange-400 transition-all cursor-pointer">
               <div class="flex items-center justify-between">
-                <span class="font-bold text-white text-xs">Meera Swaminathan (51F)</span>
-                <span class="text-[10px] font-mono text-purple-400">Oncology</span>
+                <span class="font-bold text-white text-xs">Smt. Ananya Mukherjee (46F)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-orange-950 text-orange-300 border border-orange-800">OOD Noise Artifact</span>
               </div>
-              <p class="text-[11px] text-slate-400 mt-1">Painless solitary retroareolar lump left breast (UOQ).</p>
-              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 71-5501-8891-2309@abdm</div>
+              <p class="text-[11px] text-slate-300 mt-1.5">High-frequency mains power artifact (OOD 0.82 &gt; 0.40) &rarr; Quality Gate Safeguard.</p>
+              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 19-4820-9921-1029@abdm &bull; 12-Lead ECG</div>
             </div>
 
-            <div onclick="selectWizardPatient('head_ct')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-400 transition-all cursor-pointer">
+            <div onclick="loadSyntheticCaseArchetype('head_ct')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-rose-400 transition-all cursor-pointer">
               <div class="flex items-center justify-between">
-                <span class="font-bold text-white text-xs">Gurpreet Singh (64M)</span>
-                <span class="text-[10px] font-mono text-amber-400">Neurology</span>
+                <span class="font-bold text-white text-xs">Shri Gurpreet Singh (64M)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800">Critical Urgent</span>
               </div>
-              <p class="text-[11px] text-slate-400 mt-1">Acute right hemiplegia and slurred speech, onset 2.5 hrs prior.</p>
-              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 99-3321-4402-9102@abdm</div>
+              <p class="text-[11px] text-slate-300 mt-1.5">Acute left basal ganglia ICH (42.5 mL) with 4.8 mm midline shift &rarr; Urgent Alert.</p>
+              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 99-3321-4402-9102@abdm &bull; Head CT</div>
             </div>
           </div>
 
@@ -8765,16 +8801,38 @@
       else if (stepNum === 3) refreshQualityCheckDisplay();
     }
 
+    function loadSyntheticCaseArchetype(key) {
+      if (window.QuantaMedUI && window.QuantaMedUI.loadCaseArchetype) {
+        window.QuantaMedUI.loadCaseArchetype(key);
+      }
+      selectWizardPatient(key);
+    }
+
     function selectWizardPatient(modality) {
       selectAdaptiveModality(modality);
-      const sample = (window.ADAPTIVE_SAMPLES && window.ADAPTIVE_SAMPLES[modality]) ? window.ADAPTIVE_SAMPLES[modality] : null;
-      if (sample && sample.sample_patient) {
-        const p = sample.sample_patient;
-        document.getElementById('adp-patient-display-name').innerText = `PATIENT: ${p.full_name} (${p.age} yrs, ${p.gender})`;
-        document.getElementById('adp-patient-display-id').innerText = `ID: ${p.patient_id}`;
-        document.getElementById('adp-patient-display-history').innerText = `Clinical History: ${p.clinical_history}`;
-        document.getElementById('adp-patient-display-specialist').innerText = `Attending Specialist: ${p.referring_specialist}`;
-        document.getElementById('adp-abha-id-status').innerText = `ABHA: ${p.abha_id}`;
+      if (window.QuantaMedStore && window.QuantaMedStore.loadSamplePatient) {
+        window.QuantaMedStore.loadSamplePatient(modality);
+      }
+      const p = (window.SAMPLE_PATIENTS && window.SAMPLE_PATIENTS[modality]) ? window.SAMPLE_PATIENTS[modality] : null;
+      if (p) {
+        const nameEl = document.getElementById('adp-patient-display-name');
+        if (nameEl) nameEl.innerText = `PATIENT: ${p.name} (${p.age} yrs, ${p.gender || p.sex})`;
+        const idEl = document.getElementById('adp-patient-display-id');
+        if (idEl) idEl.innerText = `ID: ${p.patientId}`;
+        const histEl = document.getElementById('adp-patient-display-history');
+        if (histEl) histEl.innerText = `Clinical History: ${p.relevantHistory || p.history}`;
+        const specEl = document.getElementById('adp-patient-display-specialist');
+        if (specEl) specEl.innerText = `Attending Specialist: ${p.referringDoctor || p.reportingDoctor}`;
+        const abhaEl = document.getElementById('adp-form-abha');
+        if (abhaEl) abhaEl.value = p.syntheticAbha || p.abhaNumber;
+        const nameInp = document.getElementById('adp-form-name');
+        if (nameInp) nameInp.value = p.name;
+        const histInp = document.getElementById('adp-form-history');
+        if (histInp) histInp.value = p.relevantHistory || p.history;
+        const indInp = document.getElementById('adp-form-indication');
+        if (indInp) indInp.value = p.indication;
+        const statusEl = document.getElementById('adp-abha-id-status');
+        if (statusEl) statusEl.innerText = `ABHA: ${p.syntheticAbha || p.abhaNumber}`;
       }
     }
 
@@ -9649,16 +9707,35 @@
           patient: {
             name: patient.name || 'Patient',
             age: patient.age || 54,
-            gender: patient.gender || 'Male',
+            gender: patient.gender || patient.sex || 'Male',
             blood_group: patient.bloodGroup || 'B+',
-            abha_id: patient.abhaId || '91-7824-3319-5481',
-            abha_address: patient.abhaAddress || 'patient@abdm'
+            abha_id: patient.syntheticAbha || patient.abhaNumber || patient.abhaId || '48-2910-4829-1920',
+            abha_address: patient.abhaAddress || 'patient@abdm',
+            uhid: patient.syntheticUhid || patient.uhid || 'UHID-DEL-89410',
+            indication: patient.indication || '',
+            relevantHistory: patient.relevantHistory || patient.history || '',
+            referringDoctor: patient.referringDoctor || '',
+            referringDoctorHpr: patient.referringDoctorHpr || '',
+            reportingDoctor: patient.reportingDoctor || '',
+            reportingDoctorHpr: patient.reportingDoctorHpr || ''
           },
-          prediction: result.primaryDiagnosis || result.predictedCondition || report.diagnosis || null,
+          doctor_view: report.doctorChosenView || state.doctorView || 'standard',
+          workflow_status: report.workflowStatus || state.workflowStatus || 'Draft (AI)',
+          version: report.version || '1.0',
+          scan_quality: scan.quality || {},
+          features: scan.features || {},
+          prediction: result.primaryDiagnosis || result.predictedCondition || report.diagnosis || report.overall_impression || null,
+          overall_impression: result.overall_impression || report.overall_impression || null,
           quantum_confidence: result.confidence ? Math.round(result.confidence * 100) : 95.6,
           findings: result.findings || report.findings || [],
-          prescription: report.prescription || [],
-          recommendation: report.recommendation || null,
+          critical_flags: result.critical_flags || report.critical_flags || [],
+          differential_considerations: result.differential_considerations || report.differential_considerations || [],
+          recommended_next_steps: result.recommended_next_steps || report.recommended_next_steps || [],
+          limitations: result.limitations || report.limitations || [],
+          ood_flag: result.ood_flag || false,
+          quality_gate: result.quality_gate || (scan.quality ? scan.quality.gate : 'Accept'),
+          provenance: result.provenance || report.provenance || {},
+          calibration_note: result.calibration_note || report.calibration_note || '',
           input_image_url: scanDataUrl,
           gradcam_url: gradcamDataUrl
         };
@@ -9852,8 +9929,22 @@
             <i class="fa-solid fa-arrow-left mr-1.5"></i> Back to Platform
           </button>
           <span id="rep-modal-verify-badge" class="px-2.5 py-1 rounded bg-cyan-950 text-cyan-300 border border-cyan-800 text-xs font-mono font-bold">A4 CLINICAL REPORT</span>
+
+          <!-- Doctor View Mode Switcher -->
+          <div class="flex items-center space-x-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold ml-2">
+            <span class="text-[10px] text-slate-400 font-mono px-1">VIEW:</span>
+            <button id="modal-btn-view-urgent" onclick="window.QuantaMedUI.switchDoctorView('urgent')" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition-all cursor-pointer">Urgent</button>
+            <button id="modal-btn-view-standard" onclick="window.QuantaMedUI.switchDoctorView('standard')" class="px-2.5 py-1 rounded-lg bg-cyan-600 text-white shadow transition-all cursor-pointer">Standard</button>
+            <button id="modal-btn-view-teaching" onclick="window.QuantaMedUI.switchDoctorView('teaching')" class="px-2.5 py-1 rounded-lg text-slate-400 hover:text-white transition-all cursor-pointer">Teaching</button>
+          </div>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-2 flex-wrap gap-y-1">
+          <button onclick="window.QuantaMedUI.exportFHIRBundleJSON()" class="px-3 py-1.5 rounded-xl bg-purple-900/60 hover:bg-purple-800 text-purple-200 border border-purple-700 text-xs font-bold transition-all shadow-md flex items-center cursor-pointer" title="Export HL7 FHIR R4 DiagnosticReport Bundle">
+            <i class="fa-solid fa-code mr-1.5"></i> FHIR R4
+          </button>
+          <button onclick="window.QuantaMedUI.generateShareableLink()" class="px-3 py-1.5 rounded-xl bg-blue-900/60 hover:bg-blue-800 text-blue-200 border border-blue-700 text-xs font-bold transition-all shadow-md flex items-center cursor-pointer" title="Generate secure 72-hour access link">
+            <i class="fa-solid fa-share-nodes mr-1.5"></i> Share
+          </button>
           <button onclick="verifyReportFromModal()" class="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-800 text-xs font-bold transition-all cursor-pointer">
             <i class="fa-solid fa-shield-check mr-1.5"></i> Verify Hash
           </button>
