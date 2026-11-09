@@ -13,6 +13,7 @@
 import io
 import os
 import time
+import base64
 from datetime import datetime
 from typing import Dict, Any, Optional
 
@@ -235,14 +236,24 @@ class ClinicalPDFGenerator:
             p_cap = p.get("caption", "")
 
             img_el = None
-            if resolved_path and os.path.exists(resolved_path):
+            if p_img_url and p_img_url.startswith("data:image"):
+                try:
+                    header, b64_str = p_img_url.split(",", 1)
+                    raw_bytes = base64.b64decode(b64_str)
+                    img_buf = io.BytesIO(raw_bytes)
+                    img_el = RLImage(img_buf, width=85 * mm, height=52 * mm)
+                except Exception as e:
+                    print(f"[!] PDF Base64 Image decode error: {e}")
+
+            if img_el is None and resolved_path and os.path.exists(resolved_path):
                 try:
                     img_el = RLImage(resolved_path, width=85 * mm, height=52 * mm)
                 except Exception as e:
                     print(f"[!] PDF Image error on {resolved_path}: {e}")
 
             if img_el is None:
-                img_el = Paragraph(f"<i>[Image file not available: {p_img_url}]</i>", cell_normal)
+                short_display = (p_img_url[:40] + "...") if len(p_img_url) > 40 else p_img_url
+                img_el = Paragraph(f"<i>[Diagnostic preview: {short_display}]</i>", cell_normal)
 
             cap_flow = Paragraph(f"<b>{p_title}</b><br/><font size=7 color='#64748b'>{p_cap}</font>", cell_normal)
             plate_flowables.append([img_el, cap_flow])

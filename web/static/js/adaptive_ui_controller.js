@@ -180,6 +180,13 @@
       });
       this.syncCaseJourneyStepper(stepNum);
 
+      if (stepNum === 5) {
+        this.renderReportPreview();
+        if (typeof openAdaptiveReportModal === 'function') {
+          openAdaptiveReportModal();
+        }
+      }
+
       // Audit transition
       if (this.auditChain) {
         this.auditChain.log("WORKFLOW_STEP_TRANSITION", this.store.get('userSettings').activeRole, "Navigation", {
@@ -663,14 +670,19 @@
       const match = reports.find(r => r.id === reportId);
       if (match) {
         this.store.update('report', match);
-        this.store.update('currentPatient', match.patient);
+        if (match.patient) this.store.update('currentPatient', match.patient);
         this.store.update('analysisResult', {
           primaryDiagnosis: match.primaryDiagnosis,
           confidence: match.confidence,
           uncertainty: match.uncertainty,
           findings: match.findings || []
         });
-        this.goToStep(5); // Go to report view
+        this.renderReportPreview();
+        if (typeof openAdaptiveReportModal === 'function') {
+          openAdaptiveReportModal();
+        } else {
+          this.goToStep(5);
+        }
         this.showToast(`Loaded Report ${reportId}`);
       }
     }
