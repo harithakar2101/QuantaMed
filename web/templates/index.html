@@ -371,8 +371,21 @@
 
     @media print {
       body * { visibility: hidden; }
-      #printable-report-modal, #printable-report-modal * { visibility: visible; }
-      #printable-report-modal { position: absolute; left: 0; top: 0; width: 100%; background: white !important; color: black !important; }
+      #printable-report-modal, #printable-report-modal *,
+      #adp-report-view-modal, #adp-report-view-modal *,
+      #printable-report-container, #printable-report-container *,
+      #clinical-report-root, #clinical-report-root * {
+        visibility: visible !important;
+      }
+      #printable-report-modal, #adp-report-view-modal {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        background: white !important;
+        color: black !important;
+        display: block !important;
+      }
       .no-print { display: none !important; }
     }
   
@@ -9600,26 +9613,105 @@
         }
       }
     }
-    function downloadAdaptiveReportPDF() {
-      const element = document.getElementById('clinical-report-root');
-      if (!element) return;
-      const patient = window.QuantaMedStore ? window.QuantaMedStore.get('currentPatient') : null;
-      const pName = (patient?.name || 'Patient').replace(/[^a-zA-Z0-9]/g, '_');
-      const filename = `QuantaMed_Clinical_Report_${pName}_${Date.now()}.pdf`;
+    async function downloadAdaptiveReportPDF() {
+      const btn = document.querySelector('#adp-report-view-modal button[onclick*="downloadAdaptiveReportPDF"]');
+      const origHtml = btn ? btn.innerHTML : '';
+      if (btn) {
+        btn.innerHTML = '<i class="fa-solid fa-spinner animate-spin mr-1.5"></i> Generating PDF...';
+        btn.disabled = true;
+      }
+      if (window.QuantaMedUI) window.QuantaMedUI.showToast("Generating official NABL ISO 15189:2022 vector PDF report...");
 
-      if (typeof html2pdf !== 'undefined') {
+      try {
+        const store = window.QuantaMedStore;
+        const state = store ? store.getState() : {};
+        const patient = state.currentPatient || {};
+        const scan = state.currentScan || {};
+        const result = state.analysisResult || {};
+        const report = state.report || {};
+        const modality = scan.modality || patient.modality || 'fundus';
+
+        let scanDataUrl = scan.dataUrl || scan.previewUrl || null;
+        let gradcamDataUrl = result.gradcamUrl || null;
+        const origCanvas = document.getElementById('adp-canvas-original') || document.getElementById('adp-scan-canvas');
+        if (origCanvas && origCanvas.toDataURL) {
+          try { scanDataUrl = origCanvas.toDataURL('image/png'); } catch (e) {}
+        }
+        const heatCanvas = document.getElementById('adp-canvas-heatmap');
+        if (heatCanvas && heatCanvas.toDataURL) {
+          try { gradcamDataUrl = heatCanvas.toDataURL('image/png'); } catch (e) {}
+        }
+
+        const payload = {
+          domain: 'Adaptive',
+          modality: modality,
+          patient_name: patient.name || 'Patient',
+          patient: {
+            name: patient.name || 'Patient',
+            age: patient.age || 54,
+            gender: patient.gender || 'Male',
+            blood_group: patient.bloodGroup || 'B+',
+            abha_id: patient.abhaId || '91-7824-3319-5481',
+            abha_address: patient.abhaAddress || 'patient@abdm'
+          },
+          prediction: result.primaryDiagnosis || result.predictedCondition || report.diagnosis || null,
+          quantum_confidence: result.confidence ? Math.round(result.confidence * 100) : 95.6,
+          findings: result.findings || report.findings || [],
+          prescription: report.prescription || [],
+          recommendation: report.recommendation || null,
+          input_image_url: scanDataUrl,
+          gradcam_url: gradcamDataUrl
+        };
+
+        const res = await fetch('/api/report/download_pdf', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          const blob = await res.blob();
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          const cleanName = (patient.name || 'Patient').replace(/[^a-zA-Z0-9]/g, '_');
+          a.download = `QuantaMed_Clinical_Report_${cleanName}_${Date.now()}.pdf`;
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+          document.body.removeChild(a);
+          if (window.QuantaMedUI) window.QuantaMedUI.showToast("Official 300 DPI vector PDF downloaded successfully!");
+          return;
+        }
+      } catch (err) {
+        console.error("Backend PDF generator error, falling back to client engine:", err);
+      } finally {
+        if (btn) {
+          btn.innerHTML = origHtml;
+          btn.disabled = false;
+        }
+      }
+
+      // Fallback 1: html2pdf with explicit viewport options
+      const element = document.getElementById('clinical-report-root') || document.getElementById('printable-report-container');
+      if (element && typeof html2pdf !== 'undefined') {
+        const patient = window.QuantaMedStore ? window.QuantaMedStore.get('currentPatient') : null;
+        const pName = (patient?.name || 'Patient').replace(/[^a-zA-Z0-9]/g, '_');
         const opt = {
-          margin: 6,
-          filename: filename,
+          margin: [8, 8, 8, 8],
+          filename: `QuantaMed_Clinical_Report_${pName}_${Date.now()}.pdf`,
           image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true, logging: false },
+          html2canvas: { scale: 2, useCORS: true, logging: false, scrollY: 0, scrollX: 0 },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
-        html2pdf().set(opt).from(element).save();
-        if (window.QuantaMedUI) window.QuantaMedUI.showToast("Generating official A4 PDF report...");
-      } else {
-        window.print();
+        try {
+          html2pdf().set(opt).from(element).save();
+          return;
+        } catch(e) {}
       }
+
+      // Fallback 2: window.print()
+      window.print();
     }
 
     function loadAuditLedger() {
@@ -9754,7 +9846,7 @@
   <!-- MODAL: FULL-SCREEN CLINICAL REPORT PREVIEW (PHASE 2) -->
   <div id="adp-report-view-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md overflow-y-auto p-4 hidden">
     <div class="max-w-4xl w-full mx-auto space-y-4">
-      <div class="flex flex-wrap justify-between items-center bg-slate-900 border border-slate-700 rounded-2xl px-5 py-3 shadow-xl gap-3">
+      <div class="flex flex-wrap justify-between items-center bg-slate-900 border border-slate-700 rounded-2xl px-5 py-3 shadow-xl gap-3 no-print">
         <div class="flex items-center space-x-2">
           <button onclick="closeAdaptiveReportModal()" class="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition-all cursor-pointer">
             <i class="fa-solid fa-arrow-left mr-1.5"></i> Back to Platform

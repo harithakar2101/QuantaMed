@@ -1360,13 +1360,21 @@ def download_clinical_report_pdf():
 
     rep_obj = req_data.get("report")
     if not rep_obj:
-        target_domain = req_data.get("domain", "")
-        if LAST_GENERATED_REPORT and (not target_domain or LAST_GENERATED_REPORT.get("domain", "").lower() == target_domain.lower()):
+        # If caller posted fresh patient/modality payload or if cache missing
+        if request.method == "POST" or not LAST_GENERATED_REPORT:
+            generate_clinical_report()
             rep_obj = LAST_GENERATED_REPORT
         else:
-            # Generate report payload for domain
-            gen_res = generate_clinical_report()
-            rep_obj = LAST_GENERATED_REPORT
+            target_domain = req_data.get("domain", "")
+            if LAST_GENERATED_REPORT and (not target_domain or LAST_GENERATED_REPORT.get("domain", "").lower() == target_domain.lower()):
+                rep_obj = LAST_GENERATED_REPORT
+            else:
+                generate_clinical_report()
+                rep_obj = LAST_GENERATED_REPORT
+
+    if not rep_obj or not isinstance(rep_obj, dict):
+        generate_clinical_report()
+        rep_obj = LAST_GENERATED_REPORT
 
     pdf_bytes = pdf_engine.build_pdf(rep_obj)
     domain_clean = rep_obj.get("domain", "Clinical").replace(" ", "_").replace("/", "_")
