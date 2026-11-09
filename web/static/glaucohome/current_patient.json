@@ -1,0 +1,12 @@
+{
+  "name": "Ramesh Krishnan",
+  "abha_id": "91-4820-5921-7734",
+  "abha_address": "ramesh.krishnan@abdm",
+  "phone": "+91 98401 98273",
+  "age": 88,
+  "diabetes": true,
+  "hypertension": true,
+  "familyHistory": false,
+  "myopia": true,
+  "steroidUse": false
+}

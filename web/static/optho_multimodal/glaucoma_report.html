@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multimodal Ophthalmology Diagnostic Report - OPHT-AI-20260924-141753</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8fafc; color: #1e293b; margin: 0; padding: 24px; }
+        .report-card { max-width: 960px; margin: 0 auto; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #e2e8f0; }
+        .header { background: linear-gradient(135deg, #070d1e 0%, #1e3a8a 100%); color: white; padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: 0.5px; }
+        .header p { margin: 4px 0 0 0; color: #94a3b8; font-size: 12px; }
+        .badge { display: inline-block; padding: 6px 14px; border-radius: 9999px; font-weight: 700; font-size: 12px; color: white; background: #e53e3e; }
+        .section { padding: 22px 32px; border-bottom: 1px solid #f1f5f9; }
+        .section-title { font-size: 15px; font-weight: 700; color: #0f172a; margin-top: 0; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .metric-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; }
+        .metric-label { font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; }
+        .metric-val { font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 3px; }
+        .img-panel { border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; text-align: center; background: #000; }
+        .img-panel img { width: 100%; height: 180px; object-fit: contain; }
+        .img-caption { font-size: 11px; font-weight: 600; padding: 5px; background: #f1f5f9; color: #334155; }
+        .alert-box { border-left: 4px solid #e53e3e; background: #f8fafc; padding: 14px; border-radius: 0 8px 8px 0; margin-top: 12px; }
+        .footer { padding: 18px 32px; background: #f8fafc; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #64748b; }
+        @media print { body { padding: 0; background: white; } .report-card { box-shadow: none; border: none; } }
+    </style>
+</head>
+<body>
+    <div class="report-card">
+        <div class="header">
+            <div>
+                <h1>FULL-SPECTRUM OPHTHALMOLOGY REPORT</h1>
+                <p>AI-Assisted Fundus ONH, Side ACA/ACD Profile, Anterior Segment & EHR Fusion</p>
+            </div>
+            <div style="text-align: right;">
+                <span class="badge">High Risk</span>
+                <div style="font-size: 11px; margin-top: 5px; color: #cbd5e1;">Report ID: OPHT-AI-20260924-141753</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">1. PATIENT DEMOGRAPHICS & CLINICAL PROFILE</div>
+            <div class="grid-3">
+                <div class="metric-box">
+                    <div class="metric-label">Patient Demographics</div>
+                    <div class="metric-val" style="font-size: 15px;">Age 62 | Female</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">Blood Pressure</div>
+                    <div class="metric-val" style="font-size: 15px;">138/86 mmHg</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">Diabetes / Refractive Error</div>
+                    <div class="metric-val" style="font-size: 15px;">Yes (Type 2) | -2.5 D</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">2. MULTIMODAL IMAGING PANELS</div>
+            <div class="grid-3">
+                <div class="img-panel">
+                    <img src="onh_segmentation_overlay.png" alt="ONH Cup/Disc">
+                    <div class="img-caption">1. Fundus ONH (Active Contour)</div>
+                </div>
+                <div class="img-panel">
+                    <img src="side_profile_overlay.png" alt="Side Profile">
+                    <div class="img-caption">2. Side Profile (ACA & ACD Depth)</div>
+                </div>
+                <div class="img-panel">
+                    <img src="onh_gradcam_overlay.png" alt="Grad-CAM Saliency">
+                    <div class="img-caption">3. Grad-CAM ONH Attention Heatmap</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">3. COMPREHENSIVE MULTI-DISEASE SCREENING MATRIX</div>
+            <div class="grid-2" style="gap: 12px; margin-bottom: 12px;">
+                <div class="metric-box">
+                    <div class="metric-label">1. Glaucoma Assessment</div>
+                    <div style="font-weight: 700; color: #0f172a; font-size: 14px; margin-top: 3px;">POAG (Primary Open-Angle Glaucoma)</div>
+                    <div style="font-size: 11px; color: #64748b; margin-top: 2px;">vCDR: 0.81 | ACA: 46.4&deg; | IOP: 17.3 mmHg</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">2. Diabetic Retinopathy (DR & DME)</div>
+                    <div style="font-weight: 700; color: #0f172a; font-size: 14px; margin-top: 3px;">Level 3: Severe NPDR (Pre-Proliferative)</div>
+                    <div style="font-size: 11px; color: #64748b; margin-top: 2px;">MA: 9 | Hemo: 8385 | DME: Moderate-High Risk</div>
+                </div>
+            </div>
+            <div class="grid-3" style="gap: 12px; margin-bottom: 12px;">
+                <div class="metric-box">
+                    <div class="metric-label">3. Cataract & Lens Opacity</div>
+                    <div style="font-weight: 700; color: #0f172a; font-size: 13px; margin-top: 3px;">Grade 3: Severe / Mature Cataract</div>
+                    <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Opacity Score: 0.77 / 1.0</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">4. Anterior Uveitis & Iritis</div>
+                    <div style="font-weight: 700; color: #0f172a; font-size: 13px; margin-top: 3px;">Moderate Anterior Uveitis (Active Iritis)</div>
+                    <div style="font-size: 11px; color: #64748b; margin-top: 2px;">SUN Flare: Grade 2+ (Moderate - Iris details clear) | KPs: Fine Endothelial KPs (30 deposits)</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">5. Conjunctivitis & Sclera</div>
+                    <div style="font-weight: 700; color: #0f172a; font-size: 13px; margin-top: 3px;">Moderate Conjunctivitis (Active Conjunctival Hyperemia)</div>
+                    <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Pattern: Diffuse Bulbar & Palpebral Injection (Maximal at Fornices) | Discharge: Watery / Serous (Viral or Allergic Suspicion)</div>
+                </div>
+            </div>
+            <div class="grid-2" style="gap: 12px;">
+                <div class="metric-box">
+                    <div class="metric-label">6. Macular Degeneration (AMD)</div>
+                    <div style="font-weight: 700; color: #0f172a; font-size: 13px; margin-top: 3px;">No AMD (Healthy Macular Architecture)</div>
+                    <div style="font-size: 11px; color: #64748b; margin-top: 2px;">Drusen Load: 0.03 / 1.0</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">7. Hypertensive Retinopathy</div>
+                    <div style="font-weight: 700; color: #0f172a; font-size: 13px; margin-top: 3px;">Grade 0: Normal Retinal Vasculature (No Hypertensive Damage)</div>
+                    <div style="font-size: 11px; color: #64748b; margin-top: 2px;">AVR: 0.70 | Tortuosity: 1.18</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">4. CLASSICAL ML CONSENSUS & QUANTUM READINESS</div>
+            <div class="grid-2">
+                <div class="metric-box">
+                    <div class="metric-label">Classical Ensemble Prediction (RF / SVM / GBDT / MLP)</div>
+                    <div class="metric-val" style="font-size: 16px; color: #2563eb;">
+                        Diabetic Retinopathy
+                    </div>
+                    <div style="font-size: 11px; color: #64748b; margin-top: 4px;">
+                        Confidence: 42.9%
+                    </div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">Quantum State Encoding Register (Phase 2 Hub)</div>
+                    <div class="metric-val" style="font-size: 16px; color: #8b5cf6;">
+                        4-Qubit State Overlap Fidelity: 98.5%
+                    </div>
+                    <div style="font-size: 11px; color: #64748b; margin-top: 4px;">
+                        Angle & Amplitude Hilbert Space Preparation: Ready
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <div style="font-weight: 700; color: #0f172a; font-size: 13px;">CLINICAL RECOMMENDATION & TRIAGE</div>
+                <div style="font-size: 13px; margin-top: 4px; color: #334155;">URGENT OPHTHALMOLOGY REFERRAL REQUIRED - Prompt gonioscopy, 24-2 Humphrey visual field test, and baseline optical coherence tomography (OCT).</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>
+                <div>Generated: 2026-09-24 14:17 | Engine: MATLAB Core + Classical ML + QML Prep</div>
+                <div style="font-size: 10px; color: #94a3b8; margin-top: 2px;">Clinical Decision Support prototype platform.</div>
+            </div>
+            <div>
+                <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+            <rect x="10" y="10" width="25" height="25" fill="#0f172a"/>
+            <rect x="15" y="15" width="15" height="15" fill="#ffffff"/>
+            <rect x="18" y="18" width="9" height="9" fill="#0f172a"/>
+            <rect x="65" y="10" width="25" height="25" fill="#0f172a"/>
+            <rect x="70" y="15" width="15" height="15" fill="#ffffff"/>
+            <rect x="73" y="18" width="9" height="9" fill="#0f172a"/>
+            <rect x="10" y="65" width="25" height="25" fill="#0f172a"/>
+            <rect x="15" y="70" width="15" height="15" fill="#ffffff"/>
+            <rect x="18" y="73" width="9" height="9" fill="#0f172a"/>
+            <rect x="45" y="45" width="10" height="10" fill="#0f172a"/>
+            <rect x="40" y="20" width="15" height="6" fill="#0f172a"/>
+            <rect x="60" y="60" width="12" height="12" fill="#0f172a"/>
+            <rect x="75" y="45" width="15" height="6" fill="#0f172a"/>
+            <rect x="45" y="70" width="10" height="15" fill="#0f172a"/>
+        </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

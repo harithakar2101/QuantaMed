@@ -1,0 +1,42 @@
+{
+  "Random Forest": {
+    "accuracy_percent": 70.37,
+    "sensitivity_percent": 70.37,
+    "specificity_percent": 96.3,
+    "precision_percent": 70.2,
+    "f1_score": 0.7,
+    "auc_roc": 0.957,
+    "training_time_sec": 0.092,
+    "samples_evaluated": 108
+  },
+  "Support Vector Machine (RBF)": {
+    "accuracy_percent": 73.15,
+    "sensitivity_percent": 73.15,
+    "specificity_percent": 96.64,
+    "precision_percent": 74.83,
+    "f1_score": 0.73,
+    "auc_roc": 0.961,
+    "training_time_sec": 0.022,
+    "samples_evaluated": 108
+  },
+  "Gradient Boosting (GBDT)": {
+    "accuracy_percent": 72.22,
+    "sensitivity_percent": 72.22,
+    "specificity_percent": 96.53,
+    "precision_percent": 72.53,
+    "f1_score": 0.717,
+    "auc_roc": 0.958,
+    "training_time_sec": 3.503,
+    "samples_evaluated": 108
+  },
+  "Multi-Layer Perceptron (MLP)": {
+    "accuracy_percent": 77.78,
+    "sensitivity_percent": 77.78,
+    "specificity_percent": 97.22,
+    "precision_percent": 76.86,
+    "f1_score": 0.771,
+    "auc_roc": 0.965,
+    "training_time_sec": 1.193,
+    "samples_evaluated": 108
+  }
+}

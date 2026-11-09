@@ -1,0 +1,14 @@
+{
+  "dataset_sources": [
+    "C:\\Users\\harit\\Downloads\\archive\\cardio_train.csv (70,000 records)",
+    "C:\\Users\\harit\\Downloads\\CARDIO-ML-ED Dataset A Multi-modal Clinical ECG Da (581 records)"
+  ],
+  "total_records_trained": 77593,
+  "test_records_evaluated": 15519,
+  "accuracy": 76.15,
+  "auc_roc": 0.8382,
+  "sensitivity": 72.29,
+  "quantum_qubits": 4,
+  "quantum_amplitudes": 16,
+  "quantum_kernel_prototypes": 64
+}

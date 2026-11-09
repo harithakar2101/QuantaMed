@@ -1,0 +1,19 @@
+{
+  "optic_disc_detected": true,
+  "od_center_x": 470.6,
+  "od_center_y": 351.1,
+  "od_diameter_px": 84,
+  "vCDR": 0.806,
+  "hCDR": 0.419,
+  "aCDR": 0.267,
+  "rim_thickness_inferior": 10.8,
+  "rim_thickness_superior": 6.4,
+  "rim_thickness_nasal": 24.8,
+  "rim_thickness_temporal": 21.3,
+  "isnt_compliant": false,
+  "isnt_status": "Borderline ISNT Compliance (Atypical Rim Pattern)",
+  "isnt_score": 0.7,
+  "isnt_breach_note": "Mild rim disproportion, requires clinical perimetry correlation.",
+  "segmentation_overlay_path": "C:\\Users\\harit\\Downloads\\optho_multimodal_screening-20260923T035359Z-1-001\\optho_multimodal_screening\\output\\onh_segmentation_overlay.png",
+  "gradcam_overlay_path": "C:\\Users\\harit\\Downloads\\optho_multimodal_screening-20260923T035359Z-1-001\\optho_multimodal_screening\\output\\onh_gradcam_overlay.png"
+}
