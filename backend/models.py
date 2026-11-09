@@ -174,3 +174,56 @@ class EvaluationSummary(BaseModel):
     calibration_expected_vs_observed: List[Dict[str, float]]
     demographic_fairness: Dict[str, Any]
     scanner_robustness: Dict[str, Any]
+
+# Phase 2 Verification & ABDM FHIR Models
+
+class ReportVerificationRequest(BaseModel):
+    report_id: str = Field(..., example="LC-2026-000412")
+    report_payload_sha256: str = Field(..., example="7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069")
+    canonical_string: Optional[str] = None
+
+class ReportVerificationResponse(BaseModel):
+    verified: bool
+    computed_sha256: str
+    received_sha256: str
+    status: str
+    message: str
+    timestamp: str
+
+class FHIRValidationRequest(BaseModel):
+    fhir_bundle: Dict[str, Any]
+
+class FHIRValidationResponse(BaseModel):
+    is_valid: bool
+    total_resources: int
+    validated_resources: List[str]
+    errors: List[str]
+    warnings: List[str]
+    schema_version: str = "HL7 FHIR R4 (v4.0.1)"
+
+class ABDMConsentRequest(BaseModel):
+    abha_id: str = Field(..., example="48-2910-4829-1920")
+    hiu_id: str = Field("HIU-QM-DELHI-01", example="HIU-QM-DELHI-01")
+    hip_id: str = Field("HIP-QM-091002", example="HIP-QM-091002")
+    purpose: str = Field("CAREV", example="CAREV")
+    expiry_date: str = Field("2027-11-09T23:59:59Z", example="2027-11-09T23:59:59Z")
+    data_types: List[str] = Field(default_factory=lambda: ["DiagnosticReport", "Observation", "ImagingStudy"])
+
+class ABDMConsentResponse(BaseModel):
+    consent_id: str
+    status: str
+    artefact_id: str
+    created_at: str
+    expires_at: str
+    message: str
+
+class AuditVerifyRequest(BaseModel):
+    blocks: List[Dict[str, Any]]
+
+class AuditVerifyResponse(BaseModel):
+    is_valid: bool
+    total_blocks: int
+    tampered_block_index: Optional[int] = None
+    message: str
+    verification_time_ms: float
+

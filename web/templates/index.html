@@ -556,6 +556,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <!-- LensCode Adaptive QuantaMed Modular Phase 2 Engines -->
+  <script src="/static/js/adaptive_store.js"></script>
+  <script src="/static/js/adaptive_image_processor.js"></script>
+  <script src="/static/js/adaptive_ecg_processor.js"></script>
+  <script src="/static/js/adaptive_inference.js"></script>
+  <script src="/static/js/adaptive_abdm_fhir.js"></script>
+  <script src="/static/js/adaptive_report_engine.js"></script>
+  <script src="/static/js/adaptive_audit_chain.js"></script>
+  <script src="/static/js/adaptive_ui_controller.js"></script>
 </head>
 <body class="theme-dark bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-cyan-950/800 selection:text-black grid-bg relative overflow-x-hidden">
 
@@ -3979,6 +3988,103 @@
     <!-- PORTAL: LENSCODE – ADAPTIVE QUANTAMED (TECHGIUM 2026 CHALLENGE)         -->
     <!-- ======================================================================= -->
     <section id="view-adaptive" class="space-y-10 pb-16">
+
+      <!-- TOP DOCTOR GREETING & STATUS ANCHOR BAR (PHASE 2) -->
+      <div class="rounded-2xl bg-gradient-to-r from-slate-900 via-[#07152b] to-slate-900 border border-cyan-500/30 p-3 sm:p-4 shadow-xl flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/40 flex items-center justify-center text-cyan-400 font-bold shadow-md">
+            <i class="fa-solid fa-user-doctor text-base"></i>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span id="adp-greeting-text" class="text-sm font-bold text-white font-sora">Good day, Dr. Sunita Rao, MS</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" title="Session Active"></span>
+            </div>
+            <p class="text-[11px] text-cyan-300/80 font-mono" id="adp-doctor-subtext">Attending Specialist &bull; HPR-IN-2026-88194 &bull; QuantaMed Autonomous Facility</p>
+          </div>
+        </div>
+
+        <!-- Center Clinical Primacy Badge -->
+        <div class="hidden md:flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cyan-950/70 border border-cyan-500/40 shadow-inner">
+          <i class="fa-solid fa-scale-balanced text-cyan-400 text-xs"></i>
+          <span class="text-xs font-bold text-cyan-200 tracking-wide" data-i18n="doctorDecides">AI assists. The doctor decides.</span>
+          <span class="text-[10px] text-slate-400 border-l border-cyan-800 pl-2">एआई सहायता करता है। निर्णय चिकित्सक का है।</span>
+        </div>
+
+        <!-- Right Quick Controls: Role, Detail, Language, Settings -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Doctor Selector -->
+          <select id="adp-doctor-persona-select" onchange="changeDoctorPersona(this.value)" class="bg-slate-950 border border-slate-700 text-white text-xs font-medium rounded-lg px-2.5 py-1.5 focus:border-cyan-400 focus:outline-none cursor-pointer">
+            <option value="sunita">Dr. Sunita Rao, MS (Ophthalmology)</option>
+            <option value="rajesh">Dr. Rajesh K. Varma, DM (Cardiology)</option>
+            <option value="anand">Dr. Anand Parthasarathy, FRCS (Retina OCT)</option>
+            <option value="pradeep">Dr. Pradeep Nair, MD (Pulmonology)</option>
+            <option value="leela">Dr. Leela Krishnan, MCh (Surgical Oncology)</option>
+            <option value="tariq">Dr. Tariq Mansoor, DM (Neurology)</option>
+          </select>
+
+          <!-- Detail Level Pill -->
+          <div class="flex items-center bg-slate-950 p-0.5 rounded-lg border border-slate-800">
+            <button onclick="setAdaptiveDetailLevel('urgent')" id="hdr-btn-urgent" class="px-2 py-1 rounded text-[11px] font-bold text-slate-400 hover:text-rose-400 transition-all" title="Urgent Triage Summary">
+              <i class="fa-solid fa-bolt mr-1 text-rose-500"></i> Urgent
+            </button>
+            <button onclick="setAdaptiveDetailLevel('standard')" id="hdr-btn-standard" class="px-2 py-1 rounded text-[11px] font-bold bg-cyan-600 text-white shadow transition-all" title="Standard Clinical Report">
+              Standard
+            </button>
+            <button onclick="setAdaptiveDetailLevel('teaching')" id="hdr-btn-teaching" class="px-2 py-1 rounded text-[11px] font-bold text-slate-400 hover:text-amber-400 transition-all" title="Teaching Walkthrough">
+              <i class="fa-solid fa-graduation-cap mr-1 text-amber-400"></i> Teaching
+            </button>
+          </div>
+
+          <!-- Language Toggle [EN | HI] -->
+          <div class="flex items-center bg-slate-950 p-0.5 rounded-lg border border-slate-800">
+            <button onclick="window.QuantaMedUI.toggleLanguage('en')" id="lang-btn-en" class="px-2 py-1 rounded text-[11px] font-bold bg-cyan-600 text-white transition-all">EN</button>
+            <button onclick="window.QuantaMedUI.toggleLanguage('hi')" id="lang-btn-hi" class="px-2 py-1 rounded text-[11px] font-bold text-slate-400 hover:text-white transition-all">हिन्दी</button>
+          </div>
+
+          <!-- Settings Button -->
+          <button onclick="openAdaptiveSettingsModal()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 text-xs font-bold transition-all cursor-pointer" title="Inference & Provider Settings">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- CASE JOURNEY STEPPER BAR (PHASE 2) -->
+      <div class="rounded-2xl bg-slate-900/90 border border-slate-800 p-3 shadow-lg">
+        <div class="flex items-center justify-between border-b border-slate-800/80 pb-2 mb-2 text-xs">
+          <span class="font-bold text-slate-300 font-mono flex items-center">
+            <i class="fa-solid fa-route mr-2 text-cyan-400"></i> CLINICAL CASE JOURNEY (END-TO-END PIPELINE)
+          </span>
+          <span class="text-[11px] font-mono text-cyan-400" id="case-journey-case-id">CASE: QM-2026-F01 &bull; COLOR FUNDUS</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-xs font-bold">
+          <button onclick="goToCaseStep(1)" id="case-step-btn-1" class="py-2 px-2.5 rounded-xl bg-cyan-600 text-white shadow-md flex items-center justify-center transition-all cursor-pointer">
+            <span class="w-5 h-5 rounded-full bg-white/20 text-white text-[10px] flex items-center justify-center mr-1.5 font-mono">1</span>
+            <span data-i18n="step1">1. Patient Intake</span>
+          </button>
+          <button onclick="goToCaseStep(2)" id="case-step-btn-2" class="py-2 px-2.5 rounded-xl bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800 flex items-center justify-center transition-all cursor-pointer">
+            <span class="w-5 h-5 rounded-full bg-slate-800 text-slate-300 text-[10px] flex items-center justify-center mr-1.5 font-mono">2</span>
+            <span data-i18n="step2">2. Quality Gating</span>
+          </button>
+          <button onclick="goToCaseStep(3)" id="case-step-btn-3" class="py-2 px-2.5 rounded-xl bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800 flex items-center justify-center transition-all cursor-pointer">
+            <span class="w-5 h-5 rounded-full bg-slate-800 text-slate-300 text-[10px] flex items-center justify-center mr-1.5 font-mono">3</span>
+            <span data-i18n="step3">3. AI Analysis</span>
+          </button>
+          <button onclick="goToCaseStep(4)" id="case-step-btn-4" class="py-2 px-2.5 rounded-xl bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800 flex items-center justify-center transition-all cursor-pointer">
+            <span class="w-5 h-5 rounded-full bg-slate-800 text-slate-300 text-[10px] flex items-center justify-center mr-1.5 font-mono">4</span>
+            <span data-i18n="step4">4. Doctor Review</span>
+          </button>
+          <button onclick="goToCaseStep(5)" id="case-step-btn-5" class="py-2 px-2.5 rounded-xl bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800 flex items-center justify-center transition-all cursor-pointer">
+            <span class="w-5 h-5 rounded-full bg-slate-800 text-slate-300 text-[10px] flex items-center justify-center mr-1.5 font-mono">5</span>
+            <span data-i18n="step5">5. Clinical Report</span>
+          </button>
+          <button onclick="goToCaseStep(6)" id="case-step-btn-6" class="py-2 px-2.5 rounded-xl bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800 flex items-center justify-center transition-all cursor-pointer">
+            <span class="w-5 h-5 rounded-full bg-slate-800 text-slate-300 text-[10px] flex items-center justify-center mr-1.5 font-mono">6</span>
+            <span data-i18n="step6">6. ABDM Share</span>
+          </button>
+        </div>
+      </div>
+
       
       <!-- HERO MASTER HEADER & 7 CORE PILLARS BANNER -->
       <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-[#071328] to-[#041c32] border border-cyan-500/30 shadow-2xl p-6 md:p-10">
@@ -4094,6 +4200,15 @@
         </button>
         <button onclick="switchAdaptiveSubView('analytics')" id="adp-subtab-analytics" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
           <i class="fa-solid fa-scale-balanced mr-1.5"></i> 3-Arm Evaluation
+        </button>
+        <button onclick="switchAdaptiveSubView('reports-library')" id="adp-subtab-reports-library" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
+          <i class="fa-solid fa-folder-tree mr-1.5"></i> Saved Reports (<span id="adp-saved-reports-count">0</span>)
+        </button>
+        <button onclick="switchAdaptiveSubView('audit-ledger')" id="adp-subtab-audit-ledger" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
+          <i class="fa-solid fa-link mr-1.5"></i> Audit Chain Ledger
+        </button>
+        <button onclick="switchAdaptiveSubView('compliance')" id="adp-subtab-compliance" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
+          <i class="fa-solid fa-book-shield mr-1.5"></i> Compliance &amp; DPDP
         </button>
       </div>
 
@@ -4640,6 +4755,59 @@
             <span class="text-xs font-mono text-slate-400">ABDM M3 Verified Sandbox</span>
           </div>
 
+          <!-- MANUAL PATIENT INTAKE FORM (PHASE 2) -->
+          <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <span class="text-xs font-bold text-white uppercase tracking-wider font-mono flex items-center">
+                <i class="fa-solid fa-user-pen mr-2 text-cyan-400"></i> Manual Patient Intake / Electronic Health Record Form
+              </span>
+              <span class="text-[10px] font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800">
+                ABDM Compliant Ingestion
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+              <div>
+                <label class="block text-slate-400 mb-1 font-semibold">Patient Full Name:</label>
+                <input type="text" id="adp-form-name" value="Smt. Kamala Devi" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans focus:outline-none focus:border-cyan-400">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1 font-semibold">Age (Years):</label>
+                <input type="number" id="adp-form-age" value="62" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono focus:outline-none focus:border-cyan-400">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1 font-semibold">Biological Sex:</label>
+                <select id="adp-form-gender" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans focus:outline-none focus:border-cyan-400">
+                  <option value="Female" selected>Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Other">Other / Non-Binary</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1 font-semibold">14-Digit ABHA ID:</label>
+                <input type="text" id="adp-form-abha" value="48-2910-4829-1920" maxlength="17" oninput="formatABHAInput(this)" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-cyan-300 font-mono focus:outline-none focus:border-cyan-400">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 text-xs">
+              <div>
+                <label class="block text-slate-400 mb-1 font-semibold">Primary Clinical Indication / Chief Complaint:</label>
+                <input type="text" id="adp-form-indication" value="Annual Diabetic Retinopathy screening and maculopathy evaluation" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans focus:outline-none focus:border-cyan-400">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1 font-semibold">Relevant Clinical History &amp; Comorbidities:</label>
+                <input type="text" id="adp-form-history" value="Type-2 Diabetes Mellitus x 14 yrs, HbA1c 8.8%, blurred central vision OD, bilateral neuropathy." class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans focus:outline-none focus:border-cyan-400">
+              </div>
+            </div>
+
+            <div class="flex justify-end pt-1">
+              <button onclick="savePatientFormToStore()" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow transition-all cursor-pointer">
+                <i class="fa-solid fa-check mr-1.5"></i> Update Active Case Profile
+              </button>
+            </div>
+          </div>
+
+
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="adp-patient-select-grid">
             <div onclick="selectWizardPatient('fundus')" class="p-4 rounded-xl bg-slate-900 border border-cyan-800/60 hover:border-cyan-400 transition-all cursor-pointer">
               <div class="flex items-center justify-between">
@@ -4765,11 +4933,29 @@
             </div>
 
             <div class="space-y-4 text-xs">
-              <div class="p-4 rounded-2xl bg-slate-900 border border-dashed border-slate-700 text-center space-y-2 hover:border-cyan-500 transition-colors cursor-pointer" onclick="document.getElementById('adp-file-input').click()">
-                <i class="fa-solid fa-cloud-arrow-up text-2xl text-cyan-400"></i>
-                <div class="font-bold text-white">Drag &amp; Drop DICOM / Scan</div>
-                <p class="text-[11px] text-slate-400">Accepts .dcm, .nii, .png, .jpg, .csv (ECG signal)</p>
-                <input type="file" id="adp-file-input" class="hidden" onchange="handleScanUpload(event)" accept="image/*,.csv,.dcm">
+              <div class="p-4 rounded-2xl bg-slate-900 border border-dashed border-slate-700 text-center space-y-3 hover:border-cyan-500 transition-colors">
+                <div class="cursor-pointer" onclick="document.getElementById('adp-file-input').click()">
+                  <i class="fa-solid fa-cloud-arrow-up text-3xl text-cyan-400"></i>
+                  <div class="font-bold text-white text-sm mt-1">Drag &amp; Drop DICOM / Medical Scan</div>
+                  <p class="text-[11px] text-slate-400">PNG, JPG, DICOM, or paste directly with Ctrl+V</p>
+                </div>
+
+                <div class="flex items-center justify-center gap-2 pt-1 border-t border-slate-800">
+                  <button type="button" onclick="document.getElementById('adp-camera-file-input').click()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 font-bold text-[11px] transition-all flex items-center cursor-pointer">
+                    <i class="fa-solid fa-camera mr-1.5"></i> Camera Capture
+                  </button>
+                  <button type="button" onclick="document.getElementById('adp-ecg-file-input').click()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-rose-300 font-bold text-[11px] transition-all flex items-center cursor-pointer">
+                    <i class="fa-solid fa-heart-pulse mr-1.5"></i> Upload ECG CSV
+                  </button>
+                </div>
+
+                <input type="file" id="adp-file-input" class="hidden" onchange="handleScanUpload(event)" accept="image/*,.csv,.json,.txt,.dcm">
+                <input type="file" id="adp-camera-file-input" class="hidden" onchange="handleScanUpload(event)" accept="image/*" capture="environment">
+                <input type="file" id="adp-ecg-file-input" class="hidden" onchange="handleECGUpload(event)" accept=".csv,.json,.txt">
+
+                <div class="text-[10px] text-cyan-400/80 bg-cyan-950/40 p-2 rounded-lg border border-cyan-900/60 font-mono">
+                  <i class="fa-solid fa-paste mr-1"></i> Tip: You can paste medical scans directly from your clipboard (Ctrl+V).
+                </div>
               </div>
 
               <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
@@ -4848,6 +5034,40 @@
               <tbody class="divide-y divide-slate-800 text-slate-300" id="adp-quality-tbody">
               </tbody>
             </table>
+          </div>
+
+          <!-- PREPROCESSING PREVIEW & STREAMING LOG (PHASE 2) -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-2">
+            <!-- CLAHE & Denoise Preprocessing Box -->
+            <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <span class="text-xs font-bold text-white flex items-center">
+                  <i class="fa-solid fa-wand-magic-sparkles mr-2 text-cyan-400"></i> CLAHE &amp; Denoise Preprocessing
+                </span>
+                <button onclick="togglePreprocessingPreview()" id="btn-toggle-clahe" class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700 text-[11px] font-bold hover:bg-slate-700 transition-all">
+                  Show Processed View
+                </button>
+              </div>
+              <p class="text-[11px] text-slate-300">
+                Applies in-browser Contrast Limited Adaptive Histogram Equalization (CLAHE) and 3x3 bilateral smoothing to enhance micro-lesions and retinal vascular contrast.
+              </p>
+              <div class="flex justify-between items-center text-[10px] font-mono text-slate-400">
+                <span>Clipping Limit: 2.5</span>
+                <span>Tile Grid: 8x8</span>
+                <span class="text-emerald-400">Status: Calibrated</span>
+              </div>
+            </div>
+
+            <!-- Real-time Streaming Activity Log -->
+            <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+              <span class="text-xs font-bold text-white flex items-center">
+                <i class="fa-solid fa-terminal mr-2 text-teal-400"></i> Real-time Execution Telemetry Log
+              </span>
+              <div id="adp-stream-activity-log" class="h-32 overflow-y-auto p-2.5 rounded-xl bg-slate-950 border border-slate-800 font-mono text-[11px] space-y-1 scrollbar-thin">
+                <div class="text-slate-500">[System] Initialized Quality Gatekeeper v2.0</div>
+                <div class="text-cyan-400">[Ready] In-browser Laplacian pixel convolution engine online.</div>
+              </div>
+            </div>
           </div>
 
           <div class="flex justify-between pt-2">
@@ -5456,6 +5676,146 @@
                   <span>Multi-OEM Generalization:</span>
                   <span class="font-mono text-emerald-400 font-bold">Verified (Topcon, GE, Siemens, Philips)</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- VIEW K: SAVED REPORTS LIBRARY (PHASE 2) -->
+      <div id="adp-view-reports-library" class="space-y-8 hidden">
+        <div class="glass p-6 md:p-8 rounded-3xl border border-slate-800 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center">
+                <i class="fa-solid fa-folder-tree mr-2 text-cyan-400"></i> Official Clinical Diagnostic Reports Library
+              </h3>
+              <p class="text-xs text-slate-400">All generated clinical reports stored locally with immutable cryptographic SHA-256 seals</p>
+            </div>
+            <button onclick="window.QuantaMedStore.saveCurrentReportToLibrary(); window.QuantaMedUI.renderSavedReportsTable();" class="px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all">
+              <i class="fa-solid fa-floppy-disk mr-1"></i> Save Current Case
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="text-slate-400 font-bold border-b border-slate-800 bg-slate-900">
+                <tr>
+                  <th class="py-3 px-3">Report ID</th>
+                  <th class="py-3 px-3">Patient Name</th>
+                  <th class="py-3 px-3">Modality</th>
+                  <th class="py-3 px-3">Primary Diagnosis</th>
+                  <th class="py-3 px-3">Workflow State</th>
+                  <th class="py-3 px-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800 text-slate-300" id="adp-saved-reports-tbody">
+                <!-- Dynamically populated by UIController -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW L: CRYPTOGRAPHIC AUDIT CHAIN LEDGER (PHASE 2) -->
+      <div id="adp-view-audit-ledger" class="space-y-8 hidden">
+        <div class="glass p-6 md:p-8 rounded-3xl border border-slate-800 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center">
+                <i class="fa-solid fa-link mr-2 text-teal-400"></i> Cryptographic Audit Ledger &amp; Chain Verification
+              </h3>
+              <p class="text-xs text-slate-400">Tamper-evident blockchain ledger: H(B_n) = SHA-256(index + prevHash + timestamp + payload)</p>
+            </div>
+            <button onclick="window.QuantaMedUI.verifyAuditChain()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-950 font-bold text-xs shadow-lg transition-all cursor-pointer">
+              <i class="fa-solid fa-shield-halved mr-1.5"></i> Verify Cryptographic Audit Chain
+            </button>
+          </div>
+
+          <div id="adp-audit-verify-status" class="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300 flex items-center justify-between">
+            <span><i class="fa-solid fa-circle-info mr-2 text-cyan-400"></i> Status: Ready. Click 'Verify Cryptographic Audit Chain' to audit all blocks.</span>
+            <span class="text-slate-500">SHA-256 Protocol</span>
+          </div>
+
+          <div class="space-y-3" id="adp-audit-chain-tbody">
+            <!-- Dynamically populated by UIController -->
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW M: COMPLIANCE, ABDM & CDSCO ARCHITECTURE (PHASE 2) -->
+      <div id="adp-view-compliance" class="space-y-8 hidden">
+        <div class="glass p-6 md:p-8 rounded-3xl border border-slate-800 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center">
+                <i class="fa-solid fa-book-shield mr-2 text-indigo-400"></i> Regulatory Architecture: ABDM M3, DPDP Act 2023 &amp; CDSCO SaMD
+              </h3>
+              <p class="text-xs text-slate-400">Comprehensive compliance mapping from hackathon prototype to production sandbox and medical device certification</p>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-indigo-950 text-indigo-300 border border-indigo-800">
+              CDSCO SaMD Class IIa
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+            <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex items-center space-x-2 text-cyan-400 font-bold">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Digital Personal Data Protection (DPDP) Act 2023</span>
+              </div>
+              <p class="text-slate-300 leading-relaxed text-[11px]">
+                Under Section 6 &amp; 7 of DPDP Act 2023, patient consent is explicit, purpose-limited (CAREV), and revocable at any time. Field-level masking is enforced on all 14-digit ABHA numbers (XX-XXXX-XXXX-4821) to prevent demographic re-identification.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex items-center space-x-2 text-teal-400 font-bold">
+                <i class="fa-solid fa-hospital"></i>
+                <span>ABDM M3 Milestone Compliance</span>
+              </div>
+              <p class="text-slate-300 leading-relaxed text-[11px]">
+                Honors Ayushman Bharat Digital Mission (ABDM) Milestone 3: Health Information Provider (HIP) and Health Information User (HIU) flows, Electronic Consent Artifacts (signed with RSA-SHA256), and HL7 FHIR R4 document bundle packaging.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex items-center space-x-2 text-rose-400 font-bold">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span>CDSCO Medical Device Rules 2017</span>
+              </div>
+              <p class="text-slate-300 leading-relaxed text-[11px]">
+                Classified under Software as a Medical Device (SaMD) Class IIa (Moderate Risk). The software operates strictly as a clinical decision support system—never providing standalone autonomous medical diagnosis. Attending physician retains final authority.
+              </p>
+            </div>
+          </div>
+
+          <!-- Sandbox to Production Path -->
+          <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3">
+            <h4 class="text-sm font-bold text-white flex items-center">
+              <i class="fa-solid fa-arrow-progress mr-2 text-cyan-400"></i> Path from Prototype to ABDM Sandbox &amp; CDSCO Production
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                <span class="text-[10px] font-mono text-cyan-400 font-bold">STAGE 1</span>
+                <div class="font-bold text-white">TRL-4 Prototype</div>
+                <p class="text-[11px] text-slate-400">Current in-browser pixel math, synthetic ABDM sandbox, and rule-based simulation.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                <span class="text-[10px] font-mono text-teal-400 font-bold">STAGE 2</span>
+                <div class="font-bold text-white">ABDM Sandbox Testing</div>
+                <p class="text-[11px] text-slate-400">NHA Sandbox Client ID integration, gateway bridging, live OTP SMS callback.</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                <span class="text-[10px] font-mono text-indigo-400 font-bold">STAGE 3</span>
+                <div class="font-bold text-white">Clinical Validation Study</div>
+                <p class="text-[11px] text-slate-400">Multi-centric prospective trial with IRB ethical approval (AIIMS &amp; PGI Chandigarh).</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                <span class="text-[10px] font-mono text-emerald-400 font-bold">STAGE 4</span>
+                <div class="font-bold text-white">CDSCO Form MD-14</div>
+                <p class="text-[11px] text-slate-400">Class IIa SaMD manufacturing license and commercial hospital deployment.</p>
               </div>
             </div>
           </div>
@@ -8339,7 +8699,8 @@
       const views = [
         'landing', 'dashboard', 'workspace', 'results',
         'adaptive-views', 'assistant', 'quantum-lab',
-        'doctor-review', 'integration', 'analytics'
+        'doctor-review', 'integration', 'analytics',
+        'reports-library', 'audit-ledger', 'compliance'
       ];
       views.forEach(v => {
         const pane = document.getElementById(`adp-view-${v}`);
@@ -8360,6 +8721,8 @@
       if (subviewId === 'workspace') renderScanPreviewCanvas();
       else if (subviewId === 'results') renderComparisonSlider();
       else if (subviewId === 'quantum-lab') drawBlochSphere();
+      else if (subviewId === 'reports-library' && window.QuantaMedUI) window.QuantaMedUI.renderSavedReportsTable();
+      else if (subviewId === 'audit-ledger' && window.QuantaMedUI) window.QuantaMedUI.renderAuditLedgerTable();
     }
 
     function adaptiveLaunchDemo() {
@@ -8530,8 +8893,44 @@
     function handleScanUpload(event) {
       const file = event.target.files[0];
       if (!file) return;
-      alert(`Uploaded file: ${file.name}. Validating Tenengrad sharpness and DICOM metadata...`);
-      renderScanPreviewCanvas();
+      if (window.QuantaMedUI) {
+        window.QuantaMedUI.handleImageFile(file);
+      } else {
+        alert(`Uploaded file: ${file.name}`);
+        renderScanPreviewCanvas();
+      }
+    }
+
+    function handleECGUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      if (window.QuantaMedUI) {
+        window.QuantaMedUI.handleECGFile(file);
+      } else {
+        alert(`Uploaded ECG data: ${file.name}`);
+      }
+    }
+
+    function togglePreprocessingPreview() {
+      const scan = window.QuantaMedStore.get('currentScan');
+      const btn = document.getElementById('btn-toggle-clahe');
+      const canvas = document.getElementById('adp-scan-canvas');
+      if (!scan.imageData || !canvas) {
+        alert("Upload a scan first to preview CLAHE contrast-enhancement.");
+        return;
+      }
+      if (!window._showingPreprocessed) {
+        window._showingPreprocessed = true;
+        const processed = window.AdaptiveImageProcessor.applyPreprocessing(scan.imageData);
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(processed, 0, 0, canvas.width, canvas.height);
+        if (btn) btn.innerText = "Revert to Raw Input";
+      } else {
+        window._showingPreprocessed = false;
+        window.QuantaMedUI.refreshScanPreview();
+        if (btn) btn.innerText = "Show Processed View";
+      }
     }
 
     function toggleSimulateBadScan() {
@@ -8621,6 +9020,10 @@
     }
 
     function executeInferencePipeline() {
+      if (window.QuantaMedUI && window.QuantaMedUI.executeRealInference) {
+        window.QuantaMedUI.executeRealInference();
+        return;
+      }
       goToWizardStep(4);
       const stages = [
         "1. Ingestion & Pre-flight Normalization",
@@ -9032,6 +9435,156 @@
       });
     }
 
+    
+    // =========================================================================
+    // PHASE 2 HELPER FUNCTIONS & CONTROLLERS
+    // =========================================================================
+    function goToCaseStep(stepNum) {
+      if (window.QuantaMedUI) {
+        window.QuantaMedUI.goToStep(stepNum);
+      }
+      if (stepNum === 1) {
+        switchAdaptiveSubView('workspace');
+        goToWizardStep(1);
+      } else if (stepNum === 2) {
+        switchAdaptiveSubView('workspace');
+        goToWizardStep(3);
+      } else if (stepNum === 3) {
+        switchAdaptiveSubView('results');
+      } else if (stepNum === 4) {
+        switchAdaptiveSubView('doctor-review');
+      } else if (stepNum === 5) {
+        openAdaptiveReportModal();
+      } else if (stepNum === 6) {
+        switchAdaptiveSubView('integration');
+      }
+      
+      const caseTag = document.getElementById('case-journey-case-id');
+      const patient = window.QuantaMedStore ? window.QuantaMedStore.get('currentPatient') : null;
+      if (caseTag && patient) {
+        caseTag.innerText = `CASE: ${patient.patientId} • ${patient.name.toUpperCase()} (${patient.modality.toUpperCase()})`;
+      }
+    }
+
+    function changeDoctorPersona(val) {
+      const personas = {
+        sunita: { name: "Dr. Sunita Rao, MS", spec: "Ophthalmology", hpr: "HPR-IN-2026-88194", mod: "fundus" },
+        rajesh: { name: "Dr. Rajesh K. Varma, DM", spec: "Cardiology", hpr: "HPR-IN-2026-10294", mod: "ecg" },
+        anand: { name: "Dr. Anand Parthasarathy, FRCS", spec: "Retina SD-OCT", hpr: "HPR-IN-2026-44012", mod: "oct" },
+        pradeep: { name: "Dr. Pradeep Nair, MD", spec: "Pulmonology", hpr: "HPR-IN-2026-33918", mod: "chest_xray" },
+        leela: { name: "Dr. Leela Krishnan, MCh", spec: "Surgical Oncology", hpr: "HPR-IN-2026-77291", mod: "breast_us" },
+        tariq: { name: "Dr. Tariq Mansoor, DM", spec: "Neurology", hpr: "HPR-IN-2026-66102", mod: "head_ct" }
+      };
+
+      const p = personas[val] || personas.sunita;
+      const greeting = document.getElementById('adp-greeting-text');
+      const sub = document.getElementById('adp-doctor-subtext');
+      if (greeting) greeting.innerText = `Good day, ${p.name}`;
+      if (sub) sub.innerText = `Attending Specialist (${p.spec}) • ${p.hpr} • QuantaMed Autonomous Facility`;
+
+      if (window.QuantaMedStore) {
+        window.QuantaMedStore.update('doctorReview', { signerName: p.name, signerHPR: p.hpr });
+        window.QuantaMedStore.update('abdm', { hprId: p.hpr, hprName: p.name });
+      }
+    }
+
+    function formatABHAInput(el) {
+      if (window.AdaptiveABDMFHIR) {
+        el.value = window.AdaptiveABDMFHIR.formatABHANumber(el.value);
+      }
+    }
+
+    function savePatientFormToStore() {
+      const name = document.getElementById('adp-form-name').value;
+      const age = parseInt(document.getElementById('adp-form-age').value, 10);
+      const gender = document.getElementById('adp-form-gender').value;
+      const abha = document.getElementById('adp-form-abha').value;
+      const indication = document.getElementById('adp-form-indication').value;
+      const history = document.getElementById('adp-form-history').value;
+
+      if (window.QuantaMedStore) {
+        window.QuantaMedStore.update('currentPatient', {
+          name, age, gender, abhaNumber: abha, indication, history
+        });
+        document.getElementById('adp-patient-display-name').innerText = `PATIENT: ${name} (${age} yrs, ${gender})`;
+        document.getElementById('adp-patient-display-history').innerText = `Clinical History: ${history}`;
+        document.getElementById('adp-abha-id-status').innerText = `ABHA: ${abha}`;
+        if (window.QuantaMedUI) window.QuantaMedUI.showToast("Updated active patient EHR record.");
+      }
+    }
+
+    function openAdaptiveSettingsModal() {
+      const modal = document.getElementById('adp-settings-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+    function closeAdaptiveSettingsModal() {
+      const modal = document.getElementById('adp-settings-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+    function saveAdaptiveSettings() {
+      const provider = document.querySelector('input[name="infProvider"]:checked')?.value || "RuleBasedSimulator";
+      const key = document.getElementById('adp-setting-gemini-key')?.value;
+      if (window.QuantaMedStore) {
+        window.QuantaMedStore.saveSettings({
+          inferenceProvider: provider,
+          geminiApiKey: key || ""
+        });
+        if (window.QuantaMedUI) window.QuantaMedUI.showToast(`Saved: ${provider} active.`);
+      }
+      closeAdaptiveSettingsModal();
+    }
+    function resetAllSessionData() {
+      if (confirm("Reset all session state, saved reports, and audit logs to factory default?")) {
+        localStorage.removeItem('quantamed_saved_reports_v2');
+        localStorage.removeItem('quantamed_audit_chain_v2');
+        localStorage.removeItem('quantamed_user_settings_v2');
+        window.location.reload();
+      }
+    }
+
+    function openABDMOTPModal() {
+      const modal = document.getElementById('adp-otp-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+    function closeABDMOTPModal() {
+      const modal = document.getElementById('adp-otp-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+    function submitABDMOTP() {
+      const otp = document.getElementById('adp-otp-input').value;
+      if (otp === '123456') {
+        closeABDMOTPModal();
+        if (window.QuantaMedStore) {
+          window.QuantaMedStore.update('abdm', { consentStatus: "VERIFIED" });
+        }
+        if (window.QuantaMedUI) {
+          window.QuantaMedUI.showToast("ABDM OTP 123456 Verified. Consent artifact sealed.");
+        }
+      } else {
+        alert("Invalid simulated OTP. Please enter 123456.");
+      }
+    }
+
+    function openAdaptiveReportModal() {
+      const modal = document.getElementById('adp-report-view-modal');
+      if (modal && window.QuantaMedUI) {
+        modal.classList.remove('hidden');
+        window.QuantaMedUI.renderReportPreview();
+      }
+    }
+    function closeAdaptiveReportModal() {
+      const modal = document.getElementById('adp-report-view-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+    async function verifyReportFromModal() {
+      if (window.AdaptiveReportEngine && window.QuantaMedStore) {
+        const res = await window.AdaptiveReportEngine.verifyReportSHA256(window.QuantaMedStore.getState());
+        if (window.QuantaMedUI) {
+          window.QuantaMedUI.showToast(res.verified ? "Report authentic: SHA-256 seal valid!" : "Hash mismatch detected!");
+        }
+      }
+    }
+
     function loadAuditLedger() {
       fetch('/api/adaptive/audit')
       .then(res => res.json())
@@ -9080,6 +9633,115 @@
     });
 
   </script>
+
+
+  <!-- MODAL: SETTINGS & INFERENCE PROVIDER (PHASE 2) -->
+  <div id="adp-settings-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="glass max-w-lg w-full p-6 rounded-3xl border border-slate-700 shadow-2xl space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-base font-bold text-white flex items-center">
+          <i class="fa-solid fa-gear mr-2 text-cyan-400"></i> Platform &amp; Inference Settings
+        </h3>
+        <button onclick="closeAdaptiveSettingsModal()" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <div>
+          <label class="block text-slate-300 font-bold mb-2">Active Inference Provider:</label>
+          <div class="space-y-2">
+            <label class="flex items-center space-x-2.5 p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500 cursor-pointer">
+              <input type="radio" name="infProvider" value="RuleBasedSimulator" checked class="accent-cyan-400">
+              <div>
+                <span class="font-bold text-white">RuleBasedSimulator (Recommended &bull; Default)</span>
+                <p class="text-[11px] text-slate-400">Deterministic feature-driven outputs. Zero external network latency.</p>
+              </div>
+            </label>
+            <label class="flex items-center space-x-2.5 p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500 cursor-pointer">
+              <input type="radio" name="infProvider" value="GeminiProvider" class="accent-cyan-400">
+              <div>
+                <span class="font-bold text-white">GeminiProvider (Privacy-Preserving Grounded LLM)</span>
+                <p class="text-[11px] text-slate-400">Sends strictly numerical extracted features to Gemini API. Never sends raw images or PII.</p>
+              </div>
+            </label>
+            <label class="flex items-center space-x-2.5 p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500 cursor-pointer">
+              <input type="radio" name="infProvider" value="BackendProvider" class="accent-cyan-400">
+              <div>
+                <span class="font-bold text-white">BackendProvider (FastAPI Local Services)</span>
+                <p class="text-[11px] text-slate-400">Connects to Python backend endpoints on port 8000 / 5000.</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-slate-300 font-bold mb-1">Gemini API Key (Optional):</label>
+          <input type="password" id="adp-setting-gemini-key" placeholder="AIzaSy..." class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-mono focus:border-cyan-400 focus:outline-none">
+          <p class="text-[10px] text-slate-500 mt-1">Stored securely in browser localStorage only. Never transmitted to third parties.</p>
+        </div>
+
+        <div class="pt-2 border-t border-slate-800 flex justify-between items-center">
+          <button onclick="resetAllSessionData()" class="px-3 py-1.5 rounded-lg bg-rose-950/60 hover:bg-rose-900 text-rose-300 border border-rose-800 text-[11px] font-bold transition-all">
+            Reset Session State
+          </button>
+          <button onclick="saveAdaptiveSettings()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 font-bold text-xs shadow transition-all cursor-pointer">
+            Save Preferences
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ABDM OTP SIMULATOR (PHASE 2) -->
+  <div id="adp-otp-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="glass max-w-sm w-full p-6 rounded-3xl border border-slate-700 shadow-2xl space-y-4 text-center">
+      <div class="w-12 h-12 rounded-2xl bg-cyan-950 border border-cyan-500/40 text-cyan-400 flex items-center justify-center mx-auto text-xl font-bold">
+        <i class="fa-solid fa-mobile-screen"></i>
+      </div>
+      <div>
+        <h3 class="text-base font-bold text-white">ABDM Sandbox OTP Verification</h3>
+        <p class="text-xs text-slate-400 mt-1">Simulated 6-digit OTP sent to Aadhaar-linked mobile for ABHA verification</p>
+      </div>
+      <div class="space-y-3">
+        <input type="text" id="adp-otp-input" maxlength="6" value="123456" class="w-full text-center text-2xl font-mono font-bold tracking-widest px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-cyan-300 focus:border-cyan-400 focus:outline-none">
+        <div class="flex gap-2">
+          <button onclick="document.getElementById('adp-otp-input').value='123456'" class="flex-1 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">Fill 123456</button>
+          <button onclick="submitABDMOTP()" class="flex-1 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs shadow">Verify OTP</button>
+        </div>
+      </div>
+      <button onclick="closeABDMOTPModal()" class="text-xs text-slate-500 hover:text-slate-400">Cancel</button>
+    </div>
+  </div>
+
+  <!-- MODAL: FULL-SCREEN CLINICAL REPORT PREVIEW (PHASE 2) -->
+  <div id="adp-report-view-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md overflow-y-auto p-4 hidden">
+    <div class="max-w-4xl w-full mx-auto space-y-4">
+      <div class="flex justify-between items-center bg-slate-900 border border-slate-700 rounded-2xl px-5 py-3 shadow-xl">
+        <div class="flex items-center space-x-2">
+          <button onclick="closeAdaptiveReportModal()" class="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition-all">
+            <i class="fa-solid fa-arrow-left mr-1.5"></i> Back to Platform
+          </button>
+          <span class="px-2.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800 text-xs font-mono font-bold">A4 CLINICAL REPORT</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button onclick="verifyReportFromModal()" class="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-800 text-xs font-bold transition-all">
+            <i class="fa-solid fa-shield-check mr-1.5"></i> Verify Hash
+          </button>
+          <button onclick="window.print()" class="px-3.5 py-1.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all">
+            <i class="fa-solid fa-print mr-1.5"></i> Print Document
+          </button>
+          <button onclick="closeAdaptiveReportModal()" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Container dynamically filled by ReportEngine -->
+      <div id="printable-report-container" class="rounded-2xl overflow-hidden shadow-2xl">
+      </div>
+    </div>
+  </div>
 
   <!-- RUN HISTORY SLIDING DRAWER (VIDEO 2 HEALTHQURE SPEC) -->
   <div id="run-history-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
