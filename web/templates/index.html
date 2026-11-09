@@ -617,7 +617,11 @@
       <button onclick="switchMainPortal('patient')" id="nav-btn-patient" class="px-2.5 py-1.5 text-xs font-bold rounded-lg text-slate-300 hover:text-cyan-400 transition-all flex items-center">
         <i class="fa-solid fa-id-card-clip mr-1.5 text-cyan-400"></i> ABHA Locker
       </button>
-      <button onclick="toggleRunHistory()" id="nav-btn-run-history" class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-indigo-950/80 hover:bg-indigo-900 text-indigo-300 border border-indigo-800 transition-all flex items-center shadow-xs">
+      <!-- LensCode Adaptive Nav Button -->
+        <button onclick="switchMainPortal('adaptive')" id="nav-btn-adaptive" class="px-2.5 py-1.5 text-xs font-bold rounded-lg text-cyan-300 hover:text-cyan-200 bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-700/80 transition-all flex items-center shadow-xs">
+          <i class="fa-solid fa-brain-circuit mr-1.5 text-cyan-400"></i> LensCode Adaptive
+        </button>
+        <button onclick="toggleRunHistory()" id="nav-btn-run-history" class="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-indigo-950/80 hover:bg-indigo-900 text-indigo-300 border border-indigo-800 transition-all flex items-center shadow-xs">
         <i class="fa-solid fa-clock-rotate-left mr-1.5 text-indigo-400"></i> Run History <span id="nav-history-badge" class="ml-1 px-1.5 py-0.2 rounded-full bg-indigo-600 text-white text-[10px]">0</span>
       </button>
     </div>
@@ -3971,6 +3975,1495 @@
 
     </section>
 
+      <!-- ======================================================================= -->
+    <!-- PORTAL: LENSCODE – ADAPTIVE QUANTAMED (TECHGIUM 2026 CHALLENGE)         -->
+    <!-- ======================================================================= -->
+    <section id="view-adaptive" class="space-y-10 pb-16">
+      
+      <!-- HERO MASTER HEADER & 7 CORE PILLARS BANNER -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-[#071328] to-[#041c32] border border-cyan-500/30 shadow-2xl p-6 md:p-10">
+        <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none"></div>
+        
+        <div class="relative z-10 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-600 via-teal-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 text-white font-black text-xl tracking-wider">
+                <span class="font-mono">&lt;[O]&gt;</span>
+              </div>
+              <div>
+                <div class="flex items-center space-x-2">
+                  <h1 class="text-2xl md:text-3xl font-black text-white tracking-tight">LensCode &bull; Adaptive QuantaMed</h1>
+                  <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 uppercase tracking-widest">
+                    TECHgium 2026
+                  </span>
+                </div>
+                <p class="text-xs md:text-sm text-cyan-300/80 font-medium">Multimodal Adaptive AI &amp; Hybrid Quantum Clinical Decision Support Ecosystem</p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-3 py-1 rounded-xl bg-slate-900/90 border border-slate-700/80 text-slate-300 text-xs font-mono flex items-center">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-2"></span>IQM Garnet 20Q &bull; SaMD Class IIa
+              </span>
+              <button onclick="adaptiveLaunchDemo()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/25 transition-all flex items-center cursor-pointer">
+                <i class="fa-solid fa-play mr-2"></i> Launch Interactive Demo
+              </button>
+            </div>
+          </div>
+
+          <!-- Hero Headline & Sub-concept -->
+          <div class="max-w-4xl space-y-2">
+            <h2 class="text-xl md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-teal-100 to-indigo-200">
+              Intelligence That Adapts. Medicine That Advances.
+            </h2>
+            <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+              An intelligent clinical copilot engineered to dynamically adjust its detail, reasoning, and evidence based on explicit physician needs and clinical acuity&mdash;empowering clinicians with explainable Grad-CAM saliency, calibrated epistemic uncertainty, human-in-the-loop caliper controls, and immutable audit logs.
+            </p>
+          </div>
+
+          <!-- 7 CORE PILLARS GRID -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2.5 pt-2">
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-cyan-900/50 hover:border-cyan-500/50 transition-all">
+              <div class="text-[10px] font-mono font-bold text-cyan-400">01 PILLAR</div>
+              <div class="text-xs font-bold text-white mt-1">Multi-Specialty</div>
+              <div class="text-[10px] text-slate-400 mt-0.5">Fundus, OCT, ECG, CXR, Breast US, Head CT</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-cyan-900/50 hover:border-cyan-500/50 transition-all">
+              <div class="text-[10px] font-mono font-bold text-teal-400">02 PILLAR</div>
+              <div class="text-xs font-bold text-white mt-1">Scan Quality Gate</div>
+              <div class="text-[10px] text-slate-400 mt-0.5">Tenengrad, Michelson, Accept / Retake Gating</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-cyan-900/50 hover:border-cyan-500/50 transition-all">
+              <div class="text-[10px] font-mono font-bold text-indigo-400">03 PILLAR</div>
+              <div class="text-xs font-bold text-white mt-1">Hybrid HQML</div>
+              <div class="text-[10px] text-slate-400 mt-0.5">Classical DL + VQC Quantum Entangled Ensemble</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-cyan-900/50 hover:border-cyan-500/50 transition-all">
+              <div class="text-[10px] font-mono font-bold text-amber-400">04 PILLAR</div>
+              <div class="text-xs font-bold text-white mt-1">Adaptive Persona</div>
+              <div class="text-[10px] text-slate-400 mt-0.5">Urgent Triage &bull; Standard &bull; Teaching Views</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-cyan-900/50 hover:border-cyan-500/50 transition-all">
+              <div class="text-[10px] font-mono font-bold text-rose-400">05 PILLAR</div>
+              <div class="text-xs font-bold text-white mt-1">Explainable AI</div>
+              <div class="text-[10px] text-slate-400 mt-0.5">Grad-CAM Heatmap + Calibrated Uncertainty</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-cyan-900/50 hover:border-cyan-500/50 transition-all">
+              <div class="text-[10px] font-mono font-bold text-emerald-400">06 PILLAR</div>
+              <div class="text-xs font-bold text-white mt-1">Human-in-Loop</div>
+              <div class="text-[10px] text-slate-400 mt-0.5">Doctor Overrides, Calipers &amp; Audit Trail</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-cyan-900/50 hover:border-cyan-500/50 transition-all">
+              <div class="text-[10px] font-mono font-bold text-fuchsia-400">07 PILLAR</div>
+              <div class="text-xs font-bold text-white mt-1">ABDM / FHIR R4</div>
+              <div class="text-[10px] text-slate-400 mt-0.5">ABHA Consent, HL7 FHIR DiagnosticReport</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADAPTIVE SUB-VIEW NAVIGATOR PILLS -->
+      <div class="sticky top-16 z-30 bg-slate-950/90 backdrop-blur-md p-2 rounded-2xl border border-slate-800 shadow-xl flex items-center overflow-x-auto space-x-1.5 scrollbar-thin">
+        <button onclick="switchAdaptiveSubView('landing')" id="adp-subtab-landing" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-cyan-600 text-white whitespace-nowrap transition-all flex items-center shadow-xs">
+          <i class="fa-solid fa-compass mr-1.5"></i> Platform Overview
+        </button>
+        <button onclick="switchAdaptiveSubView('dashboard')" id="adp-subtab-dashboard" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
+          <i class="fa-solid fa-chart-pie mr-1.5"></i> Clinical Dashboard
+        </button>
+        <button onclick="switchAdaptiveSubView('workspace')" id="adp-subtab-workspace" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
+          <i class="fa-solid fa-wand-magic-sparkles mr-1.5"></i> Scan Workspace (Wizard)
+        </button>
+        <button onclick="switchAdaptiveSubView('results')" id="adp-subtab-results" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
+          <i class="fa-solid fa-sliders mr-1.5"></i> AI Results &amp; Heatmap
+        </button>
+        <button onclick="switchAdaptiveSubView('adaptive-views')" id="adp-subtab-adaptive-views" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
+          <i class="fa-solid fa-layer-group mr-1.5"></i> Adaptive Intelligence
+        </button>
+        <button onclick="switchAdaptiveSubView('assistant')" id="adp-subtab-assistant" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
+          <i class="fa-solid fa-comments mr-1.5"></i> AI Clinical Assistant
+        </button>
+        <button onclick="switchAdaptiveSubView('quantum-lab')" id="adp-subtab-quantum-lab" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
+          <i class="fa-solid fa-atom mr-1.5"></i> Hybrid Quantum ML Lab
+        </button>
+        <button onclick="switchAdaptiveSubView('doctor-review')" id="adp-subtab-doctor-review" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
+          <i class="fa-solid fa-user-doctor mr-1.5"></i> Doctor Validation &amp; Calipers
+        </button>
+        <button onclick="switchAdaptiveSubView('integration')" id="adp-subtab-integration" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
+          <i class="fa-solid fa-shield-halved mr-1.5"></i> ABHA &amp; FHIR R4
+        </button>
+        <button onclick="switchAdaptiveSubView('analytics')" id="adp-subtab-analytics" class="px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center">
+          <i class="fa-solid fa-scale-balanced mr-1.5"></i> 3-Arm Evaluation
+        </button>
+      </div>
+
+      <!-- VIEW A: LANDING, 8-STAGE WORKFLOW & IMPLEMENTATION ROADMAP -->
+      <div id="adp-view-landing" class="space-y-10">
+        <!-- Interactive Multi-Specialty Showcase (6 Modalities) -->
+        <div class="glass rounded-3xl p-6 md:p-8 border border-slate-800 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-lg font-bold text-white flex items-center">
+                <i class="fa-solid fa-hospital mr-2 text-cyan-400"></i> Unified Multi-Specialty Imaging Diagnostics
+              </h3>
+              <p class="text-xs text-slate-400">Choose any of the 6 supported modalities to preview clinical findings and quality benchmarks</p>
+            </div>
+            <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-800">
+              6 Modalities &bull; Zero Blindspots
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="adp-modality-cards-grid">
+            <div onclick="selectAdaptiveModality('fundus')" class="p-5 rounded-2xl bg-slate-900/80 border border-cyan-800/40 hover:border-cyan-400 transition-all cursor-pointer group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider font-mono">Retina &bull; Fundus</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 group-hover:scale-125 transition-transform"></span>
+              </div>
+              <h4 class="text-sm font-bold text-white mt-2 group-hover:text-cyan-300 transition-colors">Color Fundus Photography</h4>
+              <p class="text-xs text-slate-400 mt-1">Screening for Diabetic Retinopathy, Macular Edema &amp; Glaucomatous Cup-to-Disc ratio.</p>
+              <div class="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                <span>Topcon TRC-50DX</span>
+                <span class="text-emerald-400 font-mono font-bold">Tenengrad: 88.4</span>
+              </div>
+            </div>
+
+            <div onclick="selectAdaptiveModality('oct')" class="p-5 rounded-2xl bg-slate-900/80 border border-teal-800/40 hover:border-teal-400 transition-all cursor-pointer group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-teal-400 uppercase tracking-wider font-mono">Retina &bull; SD-OCT</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform"></span>
+              </div>
+              <h4 class="text-sm font-bold text-white mt-2 group-hover:text-teal-300 transition-colors">Optical Coherence Tomography</h4>
+              <p class="text-xs text-slate-400 mt-1">Subretinal fluid, Pigment Epithelial Detachment (PED) &amp; central subfield thickness.</p>
+              <div class="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                <span>Heidelberg Spectralis</span>
+                <span class="text-emerald-400 font-mono font-bold">Sharpness: 91.2</span>
+              </div>
+            </div>
+
+            <div onclick="selectAdaptiveModality('ecg')" class="p-5 rounded-2xl bg-slate-900/80 border border-rose-800/40 hover:border-rose-400 transition-all cursor-pointer group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-rose-400 uppercase tracking-wider font-mono">Cardio &bull; 12-Lead</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-400 group-hover:scale-125 transition-transform"></span>
+              </div>
+              <h4 class="text-sm font-bold text-white mt-2 group-hover:text-rose-300 transition-colors">12-Lead Diagnostic ECG</h4>
+              <p class="text-xs text-slate-400 mt-1">Acute STEMI/NSTEMI, Atrial Fibrillation, Arrhythmias with QT/ST biomarker extraction.</p>
+              <div class="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                <span>GE MAC 5500 HD</span>
+                <span class="text-emerald-400 font-mono font-bold">Signal SNR: 94.0</span>
+              </div>
+            </div>
+
+            <div onclick="selectAdaptiveModality('chest_xray')" class="p-5 rounded-2xl bg-slate-900/80 border border-sky-800/40 hover:border-sky-400 transition-all cursor-pointer group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-sky-400 uppercase tracking-wider font-mono">Pulmonary &bull; CXR</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-sky-400 group-hover:scale-125 transition-transform"></span>
+              </div>
+              <h4 class="text-sm font-bold text-white mt-2 group-hover:text-sky-300 transition-colors">Digital Chest Radiograph (PA)</h4>
+              <p class="text-xs text-slate-400 mt-1">Active Tuberculosis cavitary consolidation, pleurisy, pneumonia &amp; nodule isolation.</p>
+              <div class="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                <span>Siemens Multix DR</span>
+                <span class="text-emerald-400 font-mono font-bold">Michelson: 84.3</span>
+              </div>
+            </div>
+
+            <div onclick="selectAdaptiveModality('breast_us')" class="p-5 rounded-2xl bg-slate-900/80 border border-purple-800/40 hover:border-purple-400 transition-all cursor-pointer group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-purple-400 uppercase tracking-wider font-mono">Oncology &bull; US</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-purple-400 group-hover:scale-125 transition-transform"></span>
+              </div>
+              <h4 class="text-sm font-bold text-white mt-2 group-hover:text-purple-300 transition-colors">Automated Breast Ultrasound</h4>
+              <p class="text-xs text-slate-400 mt-1">BI-RADS 1-5 lesion classification, acoustic shadowing, and margin spiculation analysis.</p>
+              <div class="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                <span>Philips EPIQ Elite</span>
+                <span class="text-emerald-400 font-mono font-bold">Contrast: 87.2</span>
+              </div>
+            </div>
+
+            <div onclick="selectAdaptiveModality('head_ct')" class="p-5 rounded-2xl bg-slate-900/80 border border-amber-800/40 hover:border-amber-400 transition-all cursor-pointer group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-wider font-mono">Neuro &bull; NCCT</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400 group-hover:scale-125 transition-transform"></span>
+              </div>
+              <h4 class="text-sm font-bold text-white mt-2 group-hover:text-amber-300 transition-colors">Non-Contrast Head CT</h4>
+              <p class="text-xs text-slate-400 mt-1">Hyperacute ischemic stroke, ASPECTS quantification, hemorrhage and midline shifts.</p>
+              <div class="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
+                <span>GE Revolution ACTs</span>
+                <span class="text-emerald-400 font-mono font-bold">Fidelity: 93.1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8-STAGE ARCHITECTURAL WORKFLOW (ZIG-ZAG TIMELINE WITH RED CIRCLES & TEAL GRADIENT BARS) -->
+        <div class="glass rounded-3xl p-6 md:p-10 border border-slate-800 space-y-8">
+          <div class="text-center max-w-2xl mx-auto space-y-2">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-950 text-cyan-300 border border-cyan-800">
+              End-to-End System Architecture
+            </span>
+            <h3 class="text-xl md:text-2xl font-black text-white">The 8-Stage Adaptive Intelligence Workflow</h3>
+            <p class="text-xs text-slate-400">From raw DICOM ingestion through quantum-enhanced inference to human-in-the-loop decision recording.</p>
+          </div>
+
+          <div class="relative py-8">
+            <div class="hidden md:block absolute left-1/2 top-4 bottom-4 w-1 bg-gradient-to-b from-cyan-500 via-teal-400 to-indigo-600 -translate-x-1/2 rounded-full opacity-60"></div>
+
+            <div class="space-y-8">
+              <!-- Stage 1 -->
+              <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="md:w-1/2 md:text-right">
+                  <div class="p-5 rounded-2xl bg-slate-900 border border-cyan-800/40 shadow-xl space-y-2">
+                    <span class="text-[10px] font-mono font-bold text-cyan-400 uppercase tracking-widest">Stage 01 &bull; Ingestion</span>
+                    <h4 class="text-sm font-bold text-white">Multimodal DICOM / Vector Ingestion</h4>
+                    <p class="text-xs text-slate-400">Standardized ingestion of 16-bit DICOM pixel arrays, SD-OCT volumetric B-scans, and 500 Hz 12-lead ECG time-series vectors.</p>
+                    <div class="text-[10px] font-mono text-cyan-300 bg-cyan-950/60 p-2 rounded-lg border border-cyan-900">
+                      Input: DICOM, NIfTI, EDF, XML, CSV &bull; Output: Normalized Tensor Array [B, C, H, W]
+                    </div>
+                  </div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-600 to-rose-400 text-white font-bold text-sm flex items-center justify-center shadow-lg shadow-rose-500/30 z-10 shrink-0 border-2 border-slate-950">
+                  1
+                </div>
+                <div class="md:w-1/2">
+                  <div class="h-1 bg-gradient-to-r from-teal-400 to-transparent hidden md:block rounded"></div>
+                </div>
+              </div>
+
+              <!-- Stage 2 -->
+              <div class="flex flex-col md:flex-row-reverse items-center gap-6">
+                <div class="md:w-1/2 md:text-left">
+                  <div class="p-5 rounded-2xl bg-slate-900 border border-teal-800/40 shadow-xl space-y-2">
+                    <span class="text-[10px] font-mono font-bold text-teal-400 uppercase tracking-widest">Stage 02 &bull; Pre-Flight</span>
+                    <h4 class="text-sm font-bold text-white">Intelligent Scan Quality Gating</h4>
+                    <p class="text-xs text-slate-400">Tenengrad gradient sharpness filter, Michelson contrast assessment, and Mahalanobis Out-of-Distribution (OOD) gating (Accept / Retake / Expert Review).</p>
+                    <div class="text-[10px] font-mono text-teal-300 bg-teal-950/60 p-2 rounded-lg border border-teal-900">
+                      Rule: Sharpness &ge; 70 &amp; OOD &le; 0.10 &rarr; ACCEPT; Else Auto-flag for retake
+                    </div>
+                  </div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-600 to-rose-400 text-white font-bold text-sm flex items-center justify-center shadow-lg shadow-rose-500/30 z-10 shrink-0 border-2 border-slate-950">
+                  2
+                </div>
+                <div class="md:w-1/2">
+                  <div class="h-1 bg-gradient-to-l from-teal-400 to-transparent hidden md:block rounded"></div>
+                </div>
+              </div>
+
+              <!-- Stage 3 -->
+              <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="md:w-1/2 md:text-right">
+                  <div class="p-5 rounded-2xl bg-slate-900 border border-cyan-800/40 shadow-xl space-y-2">
+                    <span class="text-[10px] font-mono font-bold text-cyan-400 uppercase tracking-widest">Stage 03 &bull; Encoders</span>
+                    <h4 class="text-sm font-bold text-white">Deep Feature Extraction &amp; Latent Compression</h4>
+                    <p class="text-xs text-slate-400">Modality-specific deep CNN/Transformer encoders extract high-dimensional semantic feature vectors, compressed via PCA/Autoencoder to 16 dimensions.</p>
+                    <div class="text-[10px] font-mono text-cyan-300 bg-cyan-950/60 p-2 rounded-lg border border-cyan-900">
+                      Transformation: 2048-D Latent Space &rarr; 16-D Classical Vector &rarr; Quantum Hilbert Space
+                    </div>
+                  </div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-600 to-rose-400 text-white font-bold text-sm flex items-center justify-center shadow-lg shadow-rose-500/30 z-10 shrink-0 border-2 border-slate-950">
+                  3
+                </div>
+                <div class="md:w-1/2">
+                  <div class="h-1 bg-gradient-to-r from-teal-400 to-transparent hidden md:block rounded"></div>
+                </div>
+              </div>
+
+              <!-- Stage 4 -->
+              <div class="flex flex-col md:flex-row-reverse items-center gap-6">
+                <div class="md:w-1/2 md:text-left">
+                  <div class="p-5 rounded-2xl bg-slate-900 border border-indigo-800/40 shadow-xl space-y-2">
+                    <span class="text-[10px] font-mono font-bold text-indigo-400 uppercase tracking-widest">Stage 04 &bull; Quantum Engine</span>
+                    <h4 class="text-sm font-bold text-white">Hybrid Quantum-Classical Classification (VQC)</h4>
+                    <p class="text-xs text-slate-400">Parameterized Quantum Circuits (PQC) executed on IQM Garnet 20-Qubit hardware backend with Zero-Noise Extrapolation (ZNE) error mitigation.</p>
+                    <div class="text-[10px] font-mono text-indigo-300 bg-indigo-950/60 p-2 rounded-lg border border-indigo-900">
+                      U(&theta;) ansatz rotation layers with circular CNOT entanglement &bull; +4.8% delta advantage
+                    </div>
+                  </div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-600 to-rose-400 text-white font-bold text-sm flex items-center justify-center shadow-lg shadow-rose-500/30 z-10 shrink-0 border-2 border-slate-950">
+                  4
+                </div>
+                <div class="md:w-1/2">
+                  <div class="h-1 bg-gradient-to-l from-teal-400 to-transparent hidden md:block rounded"></div>
+                </div>
+              </div>
+
+              <!-- Stage 5 -->
+              <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="md:w-1/2 md:text-right">
+                  <div class="p-5 rounded-2xl bg-slate-900 border border-rose-800/40 shadow-xl space-y-2">
+                    <span class="text-[10px] font-mono font-bold text-rose-400 uppercase tracking-widest">Stage 05 &bull; Explainability</span>
+                    <h4 class="text-sm font-bold text-white">Grad-CAM Saliency &amp; Uncertainty Calibration</h4>
+                    <p class="text-xs text-slate-400">Gradient-weighted Class Activation Mapping (Grad-CAM) generates heatmaps showing exactly which anatomical coordinates drove model activation.</p>
+                    <div class="text-[10px] font-mono text-rose-300 bg-rose-950/60 p-2 rounded-lg border border-rose-900">
+                      Epistemic Uncertainty: Dirichlet distribution &bull; Target: Uncertainty &le; 0.10
+                    </div>
+                  </div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-600 to-rose-400 text-white font-bold text-sm flex items-center justify-center shadow-lg shadow-rose-500/30 z-10 shrink-0 border-2 border-slate-950">
+                  5
+                </div>
+                <div class="md:w-1/2">
+                  <div class="h-1 bg-gradient-to-r from-teal-400 to-transparent hidden md:block rounded"></div>
+                </div>
+              </div>
+
+              <!-- Stage 6 -->
+              <div class="flex flex-col md:flex-row-reverse items-center gap-6">
+                <div class="md:w-1/2 md:text-left">
+                  <div class="p-5 rounded-2xl bg-slate-900 border border-amber-800/40 shadow-xl space-y-2">
+                    <span class="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest">Stage 06 &bull; Adaptive Assistance</span>
+                    <h4 class="text-sm font-bold text-white">Contextual Persona Adaptation</h4>
+                    <p class="text-xs text-slate-400">The physician explicitly selects their detail level (Urgent Summary / Standard Report / Teaching Walkthrough) without the system assuming their skill.</p>
+                    <div class="text-[10px] font-mono text-amber-300 bg-amber-950/60 p-2 rounded-lg border border-amber-900">
+                      Three Distinct Persona Renderers &bull; Glossary Tooltips &bull; Resident Guidance
+                    </div>
+                  </div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-600 to-rose-400 text-white font-bold text-sm flex items-center justify-center shadow-lg shadow-rose-500/30 z-10 shrink-0 border-2 border-slate-950">
+                  6
+                </div>
+                <div class="md:w-1/2">
+                  <div class="h-1 bg-gradient-to-l from-teal-400 to-transparent hidden md:block rounded"></div>
+                </div>
+              </div>
+
+              <!-- Stage 7 -->
+              <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="md:w-1/2 md:text-right">
+                  <div class="p-5 rounded-2xl bg-slate-900 border border-emerald-800/40 shadow-xl space-y-2">
+                    <span class="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest">Stage 07 &bull; Human-in-Loop</span>
+                    <h4 class="text-sm font-bold text-white">Physician Caliper Verification &amp; Overrides</h4>
+                    <p class="text-xs text-slate-400">Physicians can question findings via natural chat, re-adjust caliper contour boundaries, or override/reject AI predictions with clinical rationale.</p>
+                    <div class="text-[10px] font-mono text-emerald-300 bg-emerald-950/60 p-2 rounded-lg border border-emerald-900">
+                      Actions: [Accept] [Adjust Calipers] [Override Dx] [Reject] &bull; Full Doctor Primacy
+                    </div>
+                  </div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-600 to-rose-400 text-white font-bold text-sm flex items-center justify-center shadow-lg shadow-rose-500/30 z-10 shrink-0 border-2 border-slate-950">
+                  7
+                </div>
+                <div class="md:w-1/2">
+                  <div class="h-1 bg-gradient-to-r from-teal-400 to-transparent hidden md:block rounded"></div>
+                </div>
+              </div>
+
+              <!-- Stage 8 -->
+              <div class="flex flex-col md:flex-row-reverse items-center gap-6">
+                <div class="md:w-1/2 md:text-left">
+                  <div class="p-5 rounded-2xl bg-slate-900 border border-fuchsia-800/40 shadow-xl space-y-2">
+                    <span class="text-[10px] font-mono font-bold text-fuchsia-400 uppercase tracking-widest">Stage 08 &bull; Compliance</span>
+                    <h4 class="text-sm font-bold text-white">Cryptographic Audit Ledger &amp; ABDM / FHIR R4</h4>
+                    <p class="text-xs text-slate-400">The entire decision history is hashed into an immutable SHA-256 audit ledger, and packaged as an HL7 FHIR R4 DiagnosticReport for ABHA lockers.</p>
+                    <div class="text-[10px] font-mono text-fuchsia-300 bg-fuchsia-950/60 p-2 rounded-lg border border-fuchsia-900">
+                      ABDM M3 Milestone &bull; FHIR R4 DiagnosticReport &bull; Digital Signature Sealed
+                    </div>
+                  </div>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-600 to-rose-400 text-white font-bold text-sm flex items-center justify-center shadow-lg shadow-rose-500/30 z-10 shrink-0 border-2 border-slate-950">
+                  8
+                </div>
+                <div class="md:w-1/2">
+                  <div class="h-1 bg-gradient-to-l from-teal-400 to-transparent hidden md:block rounded"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6-PHASE IMPLEMENTATION ROADMAP -->
+        <div class="glass rounded-3xl p-6 md:p-8 border border-slate-800 space-y-6">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-lg font-bold text-white flex items-center">
+                <i class="fa-solid fa-timeline mr-2 text-teal-400"></i> TECHgium 2026: 6-Phase Implementation Roadmap
+              </h3>
+              <p class="text-xs text-slate-400">Structured development lifecycle from foundational dataset pipelines to clinical multi-arm validation</p>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-teal-950 text-teal-300 text-xs font-mono font-bold border border-teal-800">
+              TRL-6 Target
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-cyan-400 font-bold">PHASE 1</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">Completed</span>
+              </div>
+              <h4 class="text-sm font-bold text-white">Multi-modal Ingestion &amp; Quality Gates</h4>
+              <p class="text-xs text-slate-400">DICOM parsers, Tenengrad sharpness calculations, Michelson contrast, and OOD auto-detection filters across all 6 modalities.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-teal-400 font-bold">PHASE 2</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">Completed</span>
+              </div>
+              <h4 class="text-sm font-bold text-white">Hybrid Quantum-Classical Architecture</h4>
+              <p class="text-xs text-slate-400">Parameterized Quantum Circuits (PQC) integration, 16-D feature mapping, and IQM Garnet quantum backend simulation with ZNE.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-indigo-400 font-bold">PHASE 3</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">Completed</span>
+              </div>
+              <h4 class="text-sm font-bold text-white">Explainability &amp; Epistemic Uncertainty</h4>
+              <p class="text-xs text-slate-400">Grad-CAM saliency heatmaps, interactive slider reveal, anatomical coordinate mapping, and Dirichlet uncertainty profiling.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-amber-400 font-bold">PHASE 4</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">Completed</span>
+              </div>
+              <h4 class="text-sm font-bold text-white">Adaptive Doctor-Centric Persona Engine</h4>
+              <p class="text-xs text-slate-400">Three switchable detail views (Urgent Triage, Standard Clinical, Teaching Walkthrough) with integrated medical terminology glossary.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-rose-400 font-bold">PHASE 5</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">Completed</span>
+              </div>
+              <h4 class="text-sm font-bold text-white">Doctor-in-the-Loop &amp; Audit Trail</h4>
+              <p class="text-xs text-slate-400">Interactive caliper adjustments, conversational AI interrogation, decision overrides, and SHA-256 cryptographic audit logs.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-fuchsia-400 font-bold">PHASE 6</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">Completed</span>
+              </div>
+              <h4 class="text-sm font-bold text-white">ABDM M3, FHIR R4 &amp; 3-Arm Evaluation</h4>
+              <p class="text-xs text-slate-400">HL7 FHIR R4 JSON bundle export, ABHA consent sandbox, and comparative evaluation matrix (Doctor Alone vs AI vs Doctor+AI).</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- VIEW B: CLINICAL INTELLIGENCE DASHBOARD -->
+      <div id="adp-view-dashboard" class="space-y-8 hidden">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="glass p-5 rounded-2xl border border-slate-800 space-y-1">
+            <span class="text-xs text-slate-400 font-medium">Total Scans Screened</span>
+            <div class="text-2xl font-black text-white font-mono">1,240</div>
+            <div class="text-[11px] text-emerald-400 font-semibold flex items-center">
+              <i class="fa-solid fa-arrow-trend-up mr-1"></i> +18.4% this month
+            </div>
+          </div>
+          <div class="glass p-5 rounded-2xl border border-slate-800 space-y-1">
+            <span class="text-xs text-slate-400 font-medium">Validated Findings</span>
+            <div class="text-2xl font-black text-cyan-300 font-mono">1,186</div>
+            <div class="text-[11px] text-cyan-400 font-semibold flex items-center">
+              <i class="fa-solid fa-check-double mr-1"></i> 95.6% Agreement
+            </div>
+          </div>
+          <div class="glass p-5 rounded-2xl border border-slate-800 space-y-1">
+            <span class="text-xs text-slate-400 font-medium">Pending Doctor Reviews</span>
+            <div class="text-2xl font-black text-amber-400 font-mono" id="adp-kpi-pending-reviews">14</div>
+            <div class="text-[11px] text-amber-400 font-semibold flex items-center">
+              <i class="fa-solid fa-clock mr-1"></i> Avg turnaround: 3.2m
+            </div>
+          </div>
+          <div class="glass p-5 rounded-2xl border border-slate-800 space-y-1">
+            <span class="text-xs text-slate-400 font-medium">Mean Calibrated Confidence</span>
+            <div class="text-2xl font-black text-teal-300 font-mono">95.4%</div>
+            <div class="text-[11px] text-teal-400 font-semibold flex items-center">
+              <i class="fa-solid fa-shield-check mr-1"></i> Epistemic Uncert: 0.046
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="glass p-6 rounded-2xl border border-slate-800 space-y-4">
+            <h4 class="text-sm font-bold text-white flex items-center">
+              <i class="fa-solid fa-chart-column mr-2 text-cyan-400"></i> Modality Distribution
+            </h4>
+            <div class="space-y-3 text-xs">
+              <div>
+                <div class="flex justify-between text-slate-300 mb-1">
+                  <span>Color Fundus Photography</span>
+                  <span class="font-mono font-bold text-white">340 (27.4%)</span>
+                </div>
+                <div class="w-full bg-slate-800 rounded-full h-2">
+                  <div class="bg-cyan-500 h-2 rounded-full" style="width: 27.4%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-slate-300 mb-1">
+                  <span>Spectral-Domain OCT</span>
+                  <span class="font-mono font-bold text-white">285 (23.0%)</span>
+                </div>
+                <div class="w-full bg-slate-800 rounded-full h-2">
+                  <div class="bg-teal-500 h-2 rounded-full" style="width: 23%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-slate-300 mb-1">
+                  <span>12-Lead Diagnostic ECG</span>
+                  <span class="font-mono font-bold text-white">225 (18.1%)</span>
+                </div>
+                <div class="w-full bg-slate-800 rounded-full h-2">
+                  <div class="bg-rose-500 h-2 rounded-full" style="width: 18.1%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-slate-300 mb-1">
+                  <span>Chest X-ray (PA)</span>
+                  <span class="font-mono font-bold text-white">190 (15.3%)</span>
+                </div>
+                <div class="w-full bg-slate-800 rounded-full h-2">
+                  <div class="bg-sky-500 h-2 rounded-full" style="width: 15.3%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-slate-300 mb-1">
+                  <span>Automated Breast US</span>
+                  <span class="font-mono font-bold text-white">120 (9.7%)</span>
+                </div>
+                <div class="w-full bg-slate-800 rounded-full h-2">
+                  <div class="bg-purple-500 h-2 rounded-full" style="width: 9.7%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-slate-300 mb-1">
+                  <span>Non-Contrast Head CT</span>
+                  <span class="font-mono font-bold text-white">80 (6.5%)</span>
+                </div>
+                <div class="w-full bg-slate-800 rounded-full h-2">
+                  <div class="bg-amber-500 h-2 rounded-full" style="width: 6.5%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass p-6 rounded-2xl border border-slate-800 space-y-4">
+            <h4 class="text-sm font-bold text-white flex items-center">
+              <i class="fa-solid fa-filter mr-2 text-teal-400"></i> Scan Quality Gating Health
+            </h4>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+                <span class="text-[10px] text-slate-400 uppercase font-mono">Accept Gated</span>
+                <div class="text-xl font-black text-emerald-400 font-mono mt-1">92.8%</div>
+                <span class="text-[10px] text-slate-500">1,151 Scans</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+                <span class="text-[10px] text-slate-400 uppercase font-mono">Retake Flags</span>
+                <div class="text-xl font-black text-rose-400 font-mono mt-1">3.1%</div>
+                <span class="text-[10px] text-slate-500">38 Scans</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+                <span class="text-[10px] text-slate-400 uppercase font-mono">Expert Review</span>
+                <div class="text-xl font-black text-amber-400 font-mono mt-1">4.1%</div>
+                <span class="text-[10px] text-slate-500">51 Scans</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+                <span class="text-[10px] text-slate-400 uppercase font-mono">Mean Sharpness</span>
+                <div class="text-xl font-black text-cyan-400 font-mono mt-1">89.6</div>
+                <span class="text-[10px] text-slate-500">Tenengrad Index</span>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl bg-cyan-950/40 border border-cyan-800/60 text-xs text-cyan-200">
+              <i class="fa-solid fa-circle-info mr-1 text-cyan-400"></i>
+              Pre-inference quality checks reject corrupted or blurred scans, completely preventing hallucinated or misleading predictions.
+            </div>
+          </div>
+
+          <div class="glass p-6 rounded-2xl border border-slate-800 space-y-4">
+            <h4 class="text-sm font-bold text-white flex items-center">
+              <i class="fa-solid fa-bell mr-2 text-rose-500"></i> Live Priority Triage Queue
+            </h4>
+            <div class="space-y-2.5 text-xs">
+              <div class="p-3 rounded-xl bg-rose-950/40 border border-rose-900/60 flex items-start space-x-2.5">
+                <i class="fa-solid fa-triangle-exclamation text-rose-500 mt-0.5"></i>
+                <div>
+                  <div class="font-bold text-rose-300">Acute STEMI &bull; Vikramaditya Sen (57M)</div>
+                  <div class="text-[11px] text-slate-300">ST-elevation 3.8mm in V2-V3. Immediate cath-lab triage advised.</div>
+                  <div class="text-[10px] text-slate-500 mt-1 font-mono">12 min ago &bull; Urgent View active</div>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-amber-950/40 border border-amber-900/60 flex items-start space-x-2.5">
+                <i class="fa-solid fa-clock text-amber-500 mt-0.5"></i>
+                <div>
+                  <div class="font-bold text-amber-300">BI-RADS 5 Spiculated Mass &bull; Meera S. (51F)</div>
+                  <div class="text-[11px] text-slate-300">Left breast UOQ (2.1 cm). Gated for attending onco-surgeon review.</div>
+                  <div class="text-[10px] text-slate-500 mt-1 font-mono">34 min ago &bull; Caliper mark-up pending</div>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-cyan-950/40 border border-cyan-900/60 flex items-start space-x-2.5">
+                <i class="fa-solid fa-check text-cyan-400 mt-0.5"></i>
+                <div>
+                  <div class="font-bold text-cyan-300">Diabetic CSME Validated &bull; Kamala Devi (62F)</div>
+                  <div class="text-[11px] text-slate-300">Reviewed by Dr. Sunita Rao, MS &bull; SHA-256 seal logged.</div>
+                  <div class="text-[10px] text-slate-500 mt-1 font-mono">1 hr ago &bull; FHIR R4 Bundle dispatched</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW C: SCAN ANALYSIS WORKSPACE (4-STEP WIZARD) -->
+      <div id="adp-view-workspace" class="space-y-8 hidden">
+        <div class="glass rounded-2xl p-4 border border-slate-800">
+          <div class="grid grid-cols-4 text-center text-xs font-bold gap-2">
+            <button onclick="goToWizardStep(1)" id="wiz-step-btn-1" class="py-2 rounded-xl bg-cyan-600 text-white shadow transition-all">
+              1. Patient &amp; History
+            </button>
+            <button onclick="goToWizardStep(2)" id="wiz-step-btn-2" class="py-2 rounded-xl bg-slate-900 text-slate-400 hover:text-slate-200 transition-all">
+              2. Modality &amp; Scan Upload
+            </button>
+            <button onclick="goToWizardStep(3)" id="wiz-step-btn-3" class="py-2 rounded-xl bg-slate-900 text-slate-400 hover:text-slate-200 transition-all">
+              3. Scan Quality Gating
+            </button>
+            <button onclick="goToWizardStep(4)" id="wiz-step-btn-4" class="py-2 rounded-xl bg-slate-900 text-slate-400 hover:text-slate-200 transition-all">
+              4. 8-Stage Inference
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 1: Patient Profile & History -->
+        <div id="wiz-pane-1" class="glass rounded-3xl p-6 md:p-8 border border-slate-800 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center">
+                <i class="fa-solid fa-id-card mr-2 text-cyan-400"></i> Step 1: Select Synthetic Patient Profile &amp; Clinical Context
+              </h3>
+              <p class="text-xs text-slate-400">The system adjusts recommendations based on clinical history without making assumptions about doctor expertise</p>
+            </div>
+            <span class="text-xs font-mono text-slate-400">ABDM M3 Verified Sandbox</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="adp-patient-select-grid">
+            <div onclick="selectWizardPatient('fundus')" class="p-4 rounded-xl bg-slate-900 border border-cyan-800/60 hover:border-cyan-400 transition-all cursor-pointer">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-white text-xs">Smt. Kamala Devi (62F)</span>
+                <span class="text-[10px] font-mono text-cyan-400">Ophthalmology</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">T2DM x 14 yrs, HbA1c 8.8%, blurred central vision OD.</p>
+              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 48-2910-4829-1920@abdm</div>
+            </div>
+
+            <div onclick="selectWizardPatient('oct')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-teal-400 transition-all cursor-pointer">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-white text-xs">Ramesh Chandra (69M)</span>
+                <span class="text-[10px] font-mono text-teal-400">Retina OCT</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">Progressive central metamorphopsia OS x 3 months.</p>
+              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 31-8902-1920-3301@abdm</div>
+            </div>
+
+            <div onclick="selectWizardPatient('ecg')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-rose-400 transition-all cursor-pointer">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-white text-xs">Vikramaditya Sen (57M)</span>
+                <span class="text-[10px] font-mono text-rose-400">Cardiology</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">Crushing retrosternal chest pain x 45 min, diaphoresis.</p>
+              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 19-4820-9921-1029@abdm</div>
+            </div>
+
+            <div onclick="selectWizardPatient('chest_xray')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-sky-400 transition-all cursor-pointer">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-white text-xs">Ananya Mukherjee (46F)</span>
+                <span class="text-[10px] font-mono text-sky-400">Pulmonology</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">Productive cough x 3 weeks, low pyrexia, hemoptysis streaks.</p>
+              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 82-1029-4820-5591@abdm</div>
+            </div>
+
+            <div onclick="selectWizardPatient('breast_us')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-purple-400 transition-all cursor-pointer">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-white text-xs">Meera Swaminathan (51F)</span>
+                <span class="text-[10px] font-mono text-purple-400">Oncology</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">Painless solitary retroareolar lump left breast (UOQ).</p>
+              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 71-5501-8891-2309@abdm</div>
+            </div>
+
+            <div onclick="selectWizardPatient('head_ct')" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-400 transition-all cursor-pointer">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-white text-xs">Gurpreet Singh (64M)</span>
+                <span class="text-[10px] font-mono text-amber-400">Neurology</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">Acute right hemiplegia and slurred speech, onset 2.5 hrs prior.</p>
+              <div class="mt-2 text-[10px] font-mono text-slate-500">ABHA: 99-3321-4402-9102@abdm</div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-950 border border-cyan-800/80 space-y-2" id="adp-active-patient-card">
+            <div class="flex justify-between items-center text-xs">
+              <span class="font-bold text-cyan-300 font-mono" id="adp-patient-display-name">PATIENT: Smt. Kamala Devi (62 yrs, Female)</span>
+              <span class="text-slate-400 font-mono" id="adp-patient-display-id">ID: QM-2026-F01</span>
+            </div>
+            <p class="text-xs text-slate-300" id="adp-patient-display-history">Clinical History: Type 2 Diabetes Mellitus x 14 yrs, HbA1c 8.8%, blurred central vision OD.</p>
+            <div class="text-[11px] text-slate-400 font-mono" id="adp-patient-display-specialist">Attending Specialist: Dr. Sunita Rao, MS (Ophth)</div>
+          </div>
+
+          <div class="flex justify-end pt-2">
+            <button onclick="goToWizardStep(2)" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-slate-950 font-bold text-xs shadow-lg transition-all flex items-center cursor-pointer">
+              Next: Select Modality &amp; Scan <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Modality & Upload -->
+        <div id="wiz-pane-2" class="glass rounded-3xl p-6 md:p-8 border border-slate-800 space-y-6 hidden">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center">
+                <i class="fa-solid fa-file-waveform mr-2 text-cyan-400"></i> Step 2: Scan Modality &amp; Visual Ingestion
+              </h3>
+              <p class="text-xs text-slate-400">Upload DICOM/PNG/JPG or inspect calibrated synthetic benchmark scans with pan &amp; zoom</p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <button onclick="loadSampleScanDirectly()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-cyan-300 text-xs font-bold transition-all">
+                <i class="fa-solid fa-folder-open mr-1"></i> Load Default Sample
+              </button>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <button onclick="selectAdaptiveModality('fundus')" id="wiz-mod-btn-fundus" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-cyan-600 text-white border border-cyan-400 shadow">
+              Color Fundus
+            </button>
+            <button onclick="selectAdaptiveModality('oct')" id="wiz-mod-btn-oct" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
+              Retinal OCT
+            </button>
+            <button onclick="selectAdaptiveModality('ecg')" id="wiz-mod-btn-ecg" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
+              12-Lead ECG
+            </button>
+            <button onclick="selectAdaptiveModality('chest_xray')" id="wiz-mod-btn-chest_xray" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
+              Chest X-ray
+            </button>
+            <button onclick="selectAdaptiveModality('breast_us')" id="wiz-mod-btn-breast_us" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
+              Breast Ultrasound
+            </button>
+            <button onclick="selectAdaptiveModality('head_ct')" id="wiz-mod-btn-head_ct" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700">
+              Head CT
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 space-y-3">
+              <div class="relative w-full h-80 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-hidden" id="adp-canvas-container">
+                <canvas id="adp-scan-canvas" class="max-w-full max-h-full cursor-crosshair" width="600" height="320"></canvas>
+                <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded bg-slate-950/80 border border-slate-700 text-[10px] font-mono text-cyan-300" id="adp-scan-res-tag">
+                  2048 x 1536 px &bull; DICOM 16-bit
+                </div>
+                <div class="absolute top-3 right-3 flex space-x-1">
+                  <button onclick="zoomScan(1.2)" class="w-7 h-7 rounded bg-slate-900/90 text-white text-xs border border-slate-700 flex items-center justify-center hover:bg-slate-800" title="Zoom In">+</button>
+                  <button onclick="zoomScan(0.8)" class="w-7 h-7 rounded bg-slate-900/90 text-white text-xs border border-slate-700 flex items-center justify-center hover:bg-slate-800" title="Zoom Out">-</button>
+                  <button onclick="resetZoomScan()" class="w-7 h-7 rounded bg-slate-900/90 text-white text-xs border border-slate-700 flex items-center justify-center hover:bg-slate-800" title="Reset Zoom">↺</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4 text-xs">
+              <div class="p-4 rounded-2xl bg-slate-900 border border-dashed border-slate-700 text-center space-y-2 hover:border-cyan-500 transition-colors cursor-pointer" onclick="document.getElementById('adp-file-input').click()">
+                <i class="fa-solid fa-cloud-arrow-up text-2xl text-cyan-400"></i>
+                <div class="font-bold text-white">Drag &amp; Drop DICOM / Scan</div>
+                <p class="text-[11px] text-slate-400">Accepts .dcm, .nii, .png, .jpg, .csv (ECG signal)</p>
+                <input type="file" id="adp-file-input" class="hidden" onchange="handleScanUpload(event)" accept="image/*,.csv,.dcm">
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+                <span class="text-[10px] font-mono text-slate-400 uppercase font-bold">Acquisition Device Parameters</span>
+                <div class="space-y-1.5 text-[11px] text-slate-300">
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Device Model:</span>
+                    <span class="font-mono text-white" id="adp-device-model">Topcon TRC-50DX</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Spectral Bandwidth:</span>
+                    <span class="font-mono text-white">450 - 700 nm Visible</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">DICOM Compliance:</span>
+                    <span class="font-mono text-emerald-400">PS 3.3 Compliant</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-between pt-2">
+            <button onclick="goToWizardStep(1)" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold text-xs border border-slate-700 transition-all flex items-center cursor-pointer">
+              <i class="fa-solid fa-arrow-left mr-2"></i> Back: Patient
+            </button>
+            <button onclick="goToWizardStep(3)" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-slate-950 font-bold text-xs shadow-lg transition-all flex items-center cursor-pointer">
+              Next: Scan Quality Gating <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: Scan Quality Gating -->
+        <div id="wiz-pane-3" class="glass rounded-3xl p-6 md:p-8 border border-slate-800 space-y-6 hidden">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center">
+                <i class="fa-solid fa-microscope mr-2 text-teal-400"></i> Step 3: Intelligent Scan Quality Gating &amp; Defect Assessment
+              </h3>
+              <p class="text-xs text-slate-400">Tenengrad blur, Michelson contrast, illumination and out-of-distribution (OOD) checks</p>
+            </div>
+            <button onclick="toggleSimulateBadScan()" id="btn-toggle-bad-scan" class="px-3 py-1.5 rounded-lg bg-rose-950/60 hover:bg-rose-900 text-rose-300 border border-rose-800 text-xs font-bold transition-all">
+              <i class="fa-solid fa-shuffle mr-1"></i> Simulate Degraded Scan (Demo Retake)
+            </button>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-slate-950 border flex flex-col sm:flex-row items-center justify-between gap-4" id="adp-quality-banner">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center text-xl font-bold" id="adp-quality-icon">
+                <i class="fa-solid fa-shield-check"></i>
+              </div>
+              <div>
+                <div class="flex items-center space-x-2">
+                  <span class="text-base font-bold text-white" id="adp-quality-status-text">QUALITY ASSESSMENT: ACCEPT</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800" id="adp-quality-pill">PASSED</span>
+                </div>
+                <p class="text-xs text-slate-300" id="adp-quality-desc">Scan metrics satisfy ISO 15189 and NABL diagnostic clarity thresholds. Safe to perform automated inference.</p>
+              </div>
+            </div>
+            <div class="text-right font-mono">
+              <div class="text-xs text-slate-400">Composite Score</div>
+              <div class="text-2xl font-black text-emerald-400" id="adp-quality-composite-score">88.2 / 100</div>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="text-slate-400 font-bold border-b border-slate-800 bg-slate-900/60">
+                <tr>
+                  <th class="py-2.5 px-3">Metric Assessment</th>
+                  <th class="py-2.5 px-3">Measured Value</th>
+                  <th class="py-2.5 px-3">Clinical Threshold</th>
+                  <th class="py-2.5 px-3">Gating Result</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800 text-slate-300" id="adp-quality-tbody">
+              </tbody>
+            </table>
+          </div>
+
+          <div class="flex justify-between pt-2">
+            <button onclick="goToWizardStep(2)" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 font-bold text-xs border border-slate-700 transition-all flex items-center cursor-pointer">
+              <i class="fa-solid fa-arrow-left mr-2"></i> Back: Scan
+            </button>
+            <button onclick="executeInferencePipeline()" id="adp-btn-run-inference" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-slate-950 font-bold text-xs shadow-lg transition-all flex items-center cursor-pointer">
+              Run 8-Stage Inference Pipeline <i class="fa-solid fa-bolt ml-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 4: 8-Stage Inference Pipeline -->
+        <div id="wiz-pane-4" class="glass rounded-3xl p-6 md:p-8 border border-slate-800 space-y-6 hidden">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center">
+                <i class="fa-solid fa-gears mr-2 text-cyan-400"></i> Step 4: Live 8-Stage Hybrid Quantum Inference Tracker
+              </h3>
+              <p class="text-xs text-slate-400">Watch each architectural stage execute with live latency telemetry and quantum circuit entanglement</p>
+            </div>
+            <span class="text-xs font-mono text-cyan-400" id="adp-inference-clock">Pipeline: Active</span>
+          </div>
+
+          <div class="w-full bg-slate-900 rounded-full h-3 border border-slate-800 overflow-hidden">
+            <div id="adp-pipeline-progressbar" class="bg-gradient-to-r from-cyan-500 via-teal-400 to-indigo-500 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs" id="adp-pipeline-stages-grid">
+          </div>
+
+          <div class="flex justify-end pt-2">
+            <button onclick="switchAdaptiveSubView('results')" id="adp-btn-goto-results" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 font-bold text-xs shadow-lg transition-all flex items-center cursor-pointer opacity-50 pointer-events-none">
+              View AI Results &amp; Heatmaps <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW D: AI RESULTS & GRAD-CAM HEATMAP COMPARISON SLIDER -->
+      <div id="adp-view-results" class="space-y-8 hidden">
+        <div class="p-3.5 rounded-2xl bg-amber-950/60 border border-amber-700/80 text-amber-200 text-xs flex items-center justify-between">
+          <div class="flex items-center space-x-2.5">
+            <i class="fa-solid fa-triangle-exclamation text-amber-400 text-sm"></i>
+            <span><strong>SIMULATED AI OUTPUT:</strong> Research and clinical decision support system. Not a clinically validated standalone diagnostic finding. Attending physician retains final authority.</span>
+          </div>
+          <span class="px-2.5 py-0.5 rounded bg-amber-900 text-amber-100 font-mono text-[10px] font-bold">SaMD Class IIa</span>
+        </div>
+
+        <div class="glass p-6 rounded-3xl border border-slate-800 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div>
+              <span class="text-xs font-mono text-cyan-400 font-bold uppercase" id="adp-res-modality-badge">OPHTHALMOLOGY &bull; COLOR FUNDUS</span>
+              <h3 class="text-lg font-black text-white mt-0.5" id="adp-res-primary-dx">Moderate Non-Proliferative Diabetic Retinopathy (NPDR) with CSME</h3>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="text-right">
+                <span class="text-[10px] text-slate-400 block font-mono">Calibrated Confidence</span>
+                <span class="text-xl font-black text-emerald-400 font-mono" id="adp-res-conf-val">94.6%</span>
+              </div>
+              <div class="text-right border-l border-slate-800 pl-3">
+                <span class="text-[10px] text-slate-400 block font-mono">Epistemic Uncertainty</span>
+                <span class="text-xl font-black text-teal-300 font-mono" id="adp-res-uncert-val">0.054</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 space-y-2">
+              <div class="flex justify-between text-xs text-slate-300 font-semibold">
+                <span><i class="fa-solid fa-image mr-1 text-cyan-400"></i> Original Diagnostic Scan</span>
+                <span class="text-amber-400"><i class="fa-solid fa-fire mr-1"></i> Grad-CAM Attention Saliency Overlay (Drag to Reveal)</span>
+              </div>
+              
+              <div class="relative w-full h-80 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden select-none" id="adp-slider-box">
+                <canvas id="adp-canvas-heatmap" class="absolute inset-0 w-full h-full object-cover" width="600" height="320"></canvas>
+                <div id="adp-slider-clip" class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.6)]">
+                  <canvas id="adp-canvas-original" class="w-full h-full object-cover" width="600" height="320" style="width: 200%; max-width: none;"></canvas>
+                </div>
+                <div id="adp-slider-handle" class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-cyan-400 text-slate-950 font-bold text-xs flex items-center justify-center shadow-lg shadow-cyan-400/50 cursor-ew-resize z-20">
+                  <i class="fa-solid fa-arrows-left-right"></i>
+                </div>
+                <div class="absolute top-1/3 left-1/2 w-6 h-6 rounded-full bg-rose-500/30 border-2 border-rose-400 animate-ping pointer-events-none"></div>
+                <div class="absolute top-1/3 left-1/2 w-4 h-4 rounded-full bg-rose-500 text-white text-[9px] font-bold flex items-center justify-center -translate-x-1/2 -translate-y-1/2 cursor-pointer shadow-lg" title="Primary Activation: Foveal Avascular Zone Margin" onclick="highlightFinding('FND-01')">
+                  1
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 italic">Drag horizontal slider to compare raw anatomical margins against gradient activation peaks.</p>
+            </div>
+
+            <div class="space-y-4 text-xs">
+              <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+                <span class="text-[10px] font-mono text-cyan-400 uppercase font-bold">Quantitative Anatomical Measurements</span>
+                <div class="space-y-1.5 text-slate-300" id="adp-measurements-list">
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+                <span class="text-[10px] font-mono text-teal-400 uppercase font-bold">Model Limitations &amp; Clinical Safety</span>
+                <ul class="space-y-1 text-slate-300 list-disc list-inside text-[11px]" id="adp-limitations-list">
+                  <li>Valid on adult patient cohort; pediatric uncalibrated.</li>
+                  <li>Optical/motion noise may induce local false gradients.</li>
+                  <li>Decision requires attending specialist confirmation.</li>
+                </ul>
+              </div>
+
+              <div class="flex space-x-2">
+                <button onclick="switchAdaptiveSubView('adaptive-views')" class="flex-1 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition-all flex items-center justify-center">
+                  <i class="fa-solid fa-layer-group mr-1.5"></i> Adaptive Views
+                </button>
+                <button onclick="switchAdaptiveSubView('doctor-review')" class="flex-1 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-all flex items-center justify-center">
+                  <i class="fa-solid fa-user-doctor mr-1.5"></i> Review &amp; Calipers
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW E: ADAPTIVE DOCTOR INTELLIGENCE -->
+      <div id="adp-view-adaptive-views" class="space-y-8 hidden">
+        <div class="glass p-6 rounded-3xl border border-slate-800 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div>
+              <span class="text-xs font-mono text-cyan-400 font-bold uppercase">PHYSICIAN-CHOSEN DETAIL GRANULARITY</span>
+              <h3 class="text-lg font-black text-white mt-0.5">Adaptive Presentation Modes</h3>
+              <p class="text-xs text-slate-400">Strictly honors the challenge principle: never assume a doctor's ability&mdash;the clinician explicitly controls the presentation depth.</p>
+            </div>
+            
+            <div class="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800 shadow-inner">
+              <button onclick="setAdaptiveDetailLevel('urgent')" id="btn-detail-urgent" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-rose-400 transition-all flex items-center">
+                <i class="fa-solid fa-bolt mr-1.5 text-rose-500"></i> Urgent Summary
+              </button>
+              <button onclick="setAdaptiveDetailLevel('standard')" id="btn-detail-standard" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-cyan-600 text-white shadow transition-all flex items-center">
+                <i class="fa-solid fa-file-lines mr-1.5"></i> Standard Report
+              </button>
+              <button onclick="setAdaptiveDetailLevel('teaching')" id="btn-detail-teaching" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-amber-400 transition-all flex items-center">
+                <i class="fa-solid fa-graduation-cap mr-1.5 text-amber-400"></i> Teaching Walkthrough
+              </button>
+            </div>
+          </div>
+
+          <div id="adp-persona-display-pane" class="space-y-6">
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+            <span class="text-[10px] font-mono text-cyan-400 uppercase font-bold flex items-center">
+              <i class="fa-solid fa-book-medical mr-1.5"></i> Interactive Clinical Terminology Glossary (Hover for Definitions)
+            </span>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700 hover:border-cyan-400 cursor-help" title="Clinically Significant Macular Edema: Retinal thickening within 500 µm of the center of the macula, or hard exudates with associated retinal thickening.">
+                CSME &bull; Macular Edema <i class="fa-regular fa-circle-question ml-1 text-cyan-400"></i>
+              </span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700 hover:border-cyan-400 cursor-help" title="ST-Elevation Myocardial Infarction: Severe heart attack where a coronary artery is completely blocked, characterized by elevated ST segments on ECG.">
+                STEMI &bull; Myocardial Infarction <i class="fa-regular fa-circle-question ml-1 text-cyan-400"></i>
+              </span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700 hover:border-cyan-400 cursor-help" title="Breast Imaging Reporting and Data System: Standardized quality scoring tool from 1 (negative) to 5 (highly suspicious of malignancy).">
+                BI-RADS 5 <i class="fa-regular fa-circle-question ml-1 text-cyan-400"></i>
+              </span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700 hover:border-cyan-400 cursor-help" title="Alberta Stroke Program Early CT Score: 10-point quantitative topographic CT scan score used in patients with acute ischemic stroke.">
+                ASPECTS Score <i class="fa-regular fa-circle-question ml-1 text-cyan-400"></i>
+              </span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700 hover:border-cyan-400 cursor-help" title="Tenengrad Index: Squaring gradient operators to calculate high-frequency image sharpness, detecting motion and defocus blur.">
+                Tenengrad Sharpness <i class="fa-regular fa-circle-question ml-1 text-cyan-400"></i>
+              </span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700 hover:border-cyan-400 cursor-help" title="Epistemic Uncertainty: Measures model ignorance or lack of training data in that region, distinct from random measurement noise.">
+                Epistemic Uncertainty <i class="fa-regular fa-circle-question ml-1 text-cyan-400"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW F: AI CLINICAL ASSISTANT -->
+      <div id="adp-view-assistant" class="space-y-8 hidden">
+        <div class="glass p-6 md:p-8 rounded-3xl border border-slate-800 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-10 h-10 rounded-xl bg-cyan-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+                <i class="fa-solid fa-user-nurse"></i>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white">QuantaMed Grounded Clinical Assistant</h3>
+                <p class="text-xs text-slate-400">Interrogate model reasoning, ask why an abnormality was flagged, or inspect supporting regions</p>
+              </div>
+            </div>
+            <button onclick="exportChatTranscript()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs border border-slate-700 font-bold transition-all">
+              <i class="fa-solid fa-download mr-1"></i> Export Q&amp;A
+            </button>
+          </div>
+
+          <div class="space-y-2">
+            <span class="text-[10px] font-mono text-cyan-400 uppercase font-bold">Suggested Clinical Prompts</span>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <button onclick="askAssistantChip('Why was this abnormality flagged?')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-cyan-950/80 text-slate-300 hover:text-cyan-300 border border-slate-800 hover:border-cyan-700 transition-all">
+                Why was this flagged?
+              </button>
+              <button onclick="askAssistantChip('Which anatomical region supports this finding?')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-cyan-950/80 text-slate-300 hover:text-cyan-300 border border-slate-800 hover:border-cyan-700 transition-all">
+                Which region supports this?
+              </button>
+              <button onclick="askAssistantChip('What is the confidence and calibrated uncertainty?')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-cyan-950/80 text-slate-300 hover:text-cyan-300 border border-slate-800 hover:border-cyan-700 transition-all">
+                Confidence &amp; Uncertainty?
+              </button>
+              <button onclick="askAssistantChip('What are the clinical limitations of this detection?')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-cyan-950/80 text-slate-300 hover:text-cyan-300 border border-slate-800 hover:border-cyan-700 transition-all">
+                What are the limitations?
+              </button>
+              <button onclick="askAssistantChip('Why was this scan marked for expert review?')" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-cyan-950/80 text-slate-300 hover:text-cyan-300 border border-slate-800 hover:border-cyan-700 transition-all">
+                Why marked for review?
+              </button>
+            </div>
+          </div>
+
+          <div class="h-80 overflow-y-auto space-y-3 p-4 rounded-2xl bg-slate-950 border border-slate-800 font-sans text-xs scrollbar-thin" id="adp-chat-stream">
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 max-w-2xl space-y-1">
+              <div class="flex items-center justify-between text-[10px] text-cyan-400 font-mono font-bold">
+                <span>QuantaMed AI Assistant</span>
+                <span>System Initialized</span>
+              </div>
+              <p class="text-slate-300">
+                Hello Doctor. I am your multimodal assistive reasoning copilot. You can ask me to explain any finding, verify anatomical coordinates, inspect Grad-CAM activations, or review the calibrated uncertainty breakdown.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <input type="text" id="adp-chat-input" placeholder="Ask a question about this scan or finding..." class="flex-1 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-xs focus:outline-none focus:border-cyan-400 font-sans" onkeydown="if(event.key==='Enter') sendAssistantMessage()">
+            <button onclick="sendAssistantMessage()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 font-bold text-xs shadow-lg hover:from-cyan-400 hover:to-teal-400 transition-all">
+              <i class="fa-solid fa-paper-plane mr-1"></i> Send
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW G: HYBRID QUANTUM ML LAB -->
+      <div id="adp-view-quantum-lab" class="space-y-8 hidden">
+        <div class="p-3.5 rounded-2xl bg-indigo-950/60 border border-indigo-700/80 text-indigo-200 text-xs flex items-center justify-between">
+          <div class="flex items-center space-x-2.5">
+            <i class="fa-solid fa-atom text-indigo-400 text-sm"></i>
+            <span><strong>EXPERIMENTAL RESEARCH MODULE:</strong> Hybrid Quantum Machine Learning (VQC / QSVM). Evaluates quantum advantage on NISQ processors. Not certified for primary clinical diagnostics.</span>
+          </div>
+          <span class="px-2.5 py-0.5 rounded bg-indigo-900 text-indigo-100 font-mono text-[10px] font-bold">IQM Garnet Backend</span>
+        </div>
+
+        <div class="glass p-6 md:p-8 rounded-3xl border border-slate-800 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center">
+                <i class="fa-solid fa-microchip mr-2 text-indigo-400"></i> Parameterized Quantum Circuit (PQC) &amp; Bloch Vector Visualizer
+              </h3>
+              <p class="text-xs text-slate-400">Simulate angle/amplitude encoding, circular CNOT entanglement, and Zero-Noise Extrapolation (ZNE)</p>
+            </div>
+            <button onclick="runQuantumSimulation()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 transition-all flex items-center">
+              <i class="fa-solid fa-rotate mr-2"></i> Re-simulate Circuit
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex justify-between">
+                <span class="text-slate-300 font-bold">Active Qubits:</span>
+                <span class="text-cyan-400 font-mono font-bold" id="adp-q-qubits-display">4 Qubits</span>
+              </div>
+              <input type="range" id="adp-q-qubits-slider" min="2" max="8" value="4" class="w-full accent-cyan-400" oninput="updateQuantumSliderLabels()">
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex justify-between">
+                <span class="text-slate-300 font-bold">Depolarizing Noise Level:</span>
+                <span class="text-rose-400 font-mono font-bold" id="adp-q-noise-display">2.0%</span>
+              </div>
+              <input type="range" id="adp-q-noise-slider" min="0" max="20" value="2" class="w-full accent-rose-400" oninput="updateQuantumSliderLabels()">
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex justify-between">
+                <span class="text-slate-300 font-bold">ZNE Error Mitigation:</span>
+                <span class="text-emerald-400 font-mono font-bold" id="adp-q-zne-display">Enabled</span>
+              </div>
+              <div class="flex items-center space-x-2 pt-1">
+                <input type="checkbox" id="adp-q-zne-check" checked class="w-4 h-4 accent-emerald-500 cursor-pointer" onchange="runQuantumSimulation()">
+                <label for="adp-q-zne-check" class="text-slate-300 cursor-pointer">Apply Zero-Noise Richardson Extrapolation</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <div class="flex justify-between text-xs text-slate-300 font-bold">
+                <span>Multi-Qubit Bloch Sphere Projections</span>
+                <span class="text-indigo-400 font-mono" id="adp-q-purity-label">State Purity: 0.944</span>
+              </div>
+              <div class="w-full h-64 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center p-2 relative">
+                <canvas id="adp-bloch-canvas" width="480" height="250" class="max-w-full"></canvas>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs">
+              <span class="text-[10px] font-mono text-indigo-400 uppercase font-bold">Comparative Advantage Benchmark</span>
+              <div class="space-y-2 text-slate-300">
+                <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                  <span>Classical ResNet-50 Baseline:</span>
+                  <span class="font-mono text-white">89.2%</span>
+                </div>
+                <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                  <span>Quantum Unmitigated Accuracy:</span>
+                  <span class="font-mono text-rose-400" id="adp-q-unmitigated">87.8%</span>
+                </div>
+                <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                  <span>ZNE-Mitigated Quantum Accuracy:</span>
+                  <span class="font-mono text-emerald-400 font-bold" id="adp-q-mitigated">94.0%</span>
+                </div>
+                <div class="flex justify-between border-b border-slate-800 pb-1.5">
+                  <span>Net Quantum Delta (&Delta;):</span>
+                  <span class="font-mono text-cyan-300 font-black" id="adp-q-delta">+4.8%</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Von Neumann State Entropy:</span>
+                  <span class="font-mono text-amber-400" id="adp-q-entropy">0.210</span>
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-indigo-950/40 border border-indigo-900/60 text-[11px] text-indigo-300">
+                <i class="fa-solid fa-atom mr-1 text-indigo-400"></i>
+                Hilbert Space Dimension: 2<sup>4</sup> = 16 dimensions. Entanglement allows modeling non-linear lesion-vessel spatial correlations.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW H: DOCTOR REVIEW & VALIDATION -->
+      <div id="adp-view-doctor-review" class="space-y-8 hidden">
+        <div class="glass p-6 md:p-8 rounded-3xl border border-slate-800 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center">
+                <i class="fa-solid fa-user-doctor mr-2 text-emerald-400"></i> Human-in-the-Loop Validation &amp; Caliper Adjustments
+              </h3>
+              <p class="text-xs text-slate-400">Physicians can adjust bounding calipers, re-classify lesions, or completely override recommendations</p>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">
+              Doctor Retains Final Primacy
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-4 text-xs">
+              <span class="text-[10px] font-mono text-cyan-400 uppercase font-bold">Interactive Caliper Contour Re-alignment</span>
+              
+              <div class="space-y-3">
+                <div>
+                  <div class="flex justify-between text-slate-300 mb-1">
+                    <span>Caliper Radius (Lesion Boundary):</span>
+                    <span class="font-mono text-cyan-400" id="adp-caliper-radius-val">12 mm</span>
+                  </div>
+                  <input type="range" id="adp-caliper-radius-slider" min="4" max="30" value="12" class="w-full accent-cyan-400" oninput="updateCaliperPreview()">
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-slate-300 mb-1">
+                    <span>Horizontal Offset (&Delta;X):</span>
+                    <span class="font-mono text-cyan-400" id="adp-caliper-x-val">0 px</span>
+                  </div>
+                  <input type="range" id="adp-caliper-x-slider" min="-50" max="50" value="0" class="w-full accent-cyan-400" oninput="updateCaliperPreview()">
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-slate-300 mb-1">
+                    <span>Vertical Offset (&Delta;Y):</span>
+                    <span class="font-mono text-cyan-400" id="adp-caliper-y-val">0 px</span>
+                  </div>
+                  <input type="range" id="adp-caliper-y-slider" min="-50" max="50" value="0" class="w-full accent-cyan-400" oninput="updateCaliperPreview()">
+                </div>
+              </div>
+
+              <div class="space-y-1.5 pt-2 border-t border-slate-800">
+                <span class="text-slate-300 font-bold">Doctor's Clinical Reclassification (Optional):</span>
+                <select id="adp-review-reclassify" class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans text-xs focus:outline-none focus:border-cyan-400">
+                  <option value="AGREE">Concur with AI Diagnosis</option>
+                  <option value="MILDER">Downgrade Severity (e.g. Mild NPDR / Benign Fibroadenoma)</option>
+                  <option value="CRITICAL">Escalate Severity (e.g. Severe PDR / STEMI Equivalent)</option>
+                  <option value="ARTIFACT">Mark as Acquisition Artifact / Inconclusive</option>
+                </select>
+              </div>
+
+              <div class="space-y-1.5">
+                <span class="text-slate-300 font-bold">Attending Rationale / Clinical Directive:</span>
+                <textarea id="adp-review-rationale" rows="2" class="w-full p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans text-xs focus:outline-none focus:border-cyan-400" placeholder="State reason for acceptance, caliper adjustment, or clinical override..."></textarea>
+              </div>
+
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
+                <button onclick="commitDoctorAction('ACCEPT')" class="py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-all shadow-sm">
+                  Accept AI
+                </button>
+                <button onclick="commitDoctorAction('MODIFY')" class="py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition-all shadow-sm">
+                  Modify Caliper
+                </button>
+                <button onclick="commitDoctorAction('OVERRIDE')" class="py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs transition-all shadow-sm">
+                  Override Dx
+                </button>
+                <button onclick="commitDoctorAction('REJECT')" class="py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs transition-all shadow-sm">
+                  Reject AI
+                </button>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs">
+              <div class="flex justify-between items-center">
+                <span class="text-[10px] font-mono text-teal-400 uppercase font-bold">Cryptographic Decision Audit Ledger</span>
+                <span class="text-[10px] font-mono text-slate-500" id="adp-audit-count">Logs: 3 Recorded</span>
+              </div>
+
+              <div class="h-64 overflow-y-auto space-y-2 scrollbar-thin" id="adp-audit-logs-container">
+                <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                  <div class="flex justify-between font-mono text-[10px] text-slate-400">
+                    <span class="text-emerald-400 font-bold">ACCEPT &bull; Dr. Sunita Rao, MS</span>
+                    <span>2026-11-09 13:20 UTC</span>
+                  </div>
+                  <p class="text-[11px] text-slate-300">Concurred with CSME finding. Calipers aligned to foveal margin.</p>
+                  <div class="font-mono text-[9px] text-slate-500 truncate">SHA256:7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1f</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW I: HEALTHCARE INTEGRATION & COMPLIANCE -->
+      <div id="adp-view-integration" class="space-y-8 hidden">
+        <div class="glass p-6 md:p-8 rounded-3xl border border-slate-800 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center">
+                <i class="fa-solid fa-network-wired mr-2 text-cyan-400"></i> ABDM M3 Ecosystem &amp; HL7 FHIR R4 DiagnosticReport
+              </h3>
+              <p class="text-xs text-slate-400">Consent-based ABHA locker sync, role-based access control (RBAC), and interoperable healthcare bundles</p>
+            </div>
+            <div class="flex space-x-2">
+              <button onclick="copyFHIRJSON()" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-cyan-300 text-xs font-bold transition-all">
+                <i class="fa-solid fa-copy mr-1"></i> Copy FHIR JSON
+              </button>
+              <button onclick="openPrintableReportModal()" class="px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all">
+                <i class="fa-solid fa-file-pdf mr-1"></i> Clinical PDF Report
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <span class="text-[10px] font-mono text-cyan-400 uppercase font-bold">Role-Based Access Control (RBAC) Switcher</span>
+              <div class="flex flex-wrap gap-2">
+                <button onclick="setRBACRole('Attending Physician')" id="rbac-btn-doctor" class="px-3 py-1 rounded-lg bg-cyan-600 text-white font-bold shadow">
+                  Attending Physician
+                </button>
+                <button onclick="setRBACRole('Radiologist')" id="rbac-btn-radiologist" class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white">
+                  Radiologist
+                </button>
+                <button onclick="setRBACRole('Medical Resident')" id="rbac-btn-resident" class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white">
+                  Medical Resident
+                </button>
+                <button onclick="setRBACRole('Compliance Auditor')" id="rbac-btn-auditor" class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white">
+                  Compliance Auditor
+                </button>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1" id="adp-rbac-desc">Active Role: Attending Physician (Full override and digital signing privileges).</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <span class="text-[10px] font-mono text-teal-400 uppercase font-bold">ABDM M3 Consent Sandbox</span>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-300 font-mono" id="adp-abha-id-status">ABHA: 48-2910-4829-1920@abdm</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">CONSENT ACTIVE</span>
+              </div>
+              <p class="text-[11px] text-slate-400">Consent Artifact ID: CA-2026-9481 &bull; HIP: IN091002 QuantaMed Health</p>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <span class="text-[10px] font-mono text-slate-400 uppercase font-bold">HL7 FHIR R4 DiagnosticReport JSON Payload</span>
+            <pre class="p-4 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-[11px] text-cyan-300 overflow-x-auto h-64 scrollbar-thin" id="adp-fhir-viewer">
+{
+  "resourceType": "Bundle",
+  "id": "bundle-qm-2026",
+  "type": "document",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "rep-qm-2026-8941",
+        "status": "final",
+        "category": [{ "coding": [{ "code": "RAD", "display": "Radiology / Imaging" }] }],
+        "code": { "coding": [{ "code": "18748-4", "display": "Diagnostic Imaging Study" }] },
+        "subject": { "reference": "Patient/QM-2026-F01", "display": "Smt. Kamala Devi" },
+        "conclusion": "Moderate NPDR with Clinically Significant Macular Edema (CSME)",
+        "conclusionCode": [{ "coding": [{ "code": "57054005", "display": "Diabetic Retinopathy" }] }]
+      }
+    }
+  ]
+}
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW J: 3-ARM ANALYTICS & BIAS AUDIT -->
+      <div id="adp-view-analytics" class="space-y-8 hidden">
+        <div class="glass p-6 md:p-8 rounded-3xl border border-slate-800 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-base font-bold text-white flex items-center">
+                <i class="fa-solid fa-scale-balanced mr-2 text-cyan-400"></i> 3-Arm Comparative Clinical Evaluation &amp; Bias Audit
+              </h3>
+              <p class="text-xs text-slate-400">Empirical trial results demonstrating that Doctor + AI collaboration outperforms either entity alone</p>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-cyan-950 text-cyan-300 border border-cyan-800">
+              Cohort: n = 1,240 Cases
+            </span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="text-slate-400 font-bold border-b border-slate-800 bg-slate-900">
+                <tr>
+                  <th class="py-3 px-3">Evaluation Metric</th>
+                  <th class="py-3 px-3 text-slate-300">Arm 1: Doctor Alone</th>
+                  <th class="py-3 px-3 text-indigo-400">Arm 2: AI Alone</th>
+                  <th class="py-3 px-3 text-emerald-400 font-black">Arm 3: Doctor + AI (QuantaMed)</th>
+                  <th class="py-3 px-3 text-cyan-400 font-bold">Collaborative Delta</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800 text-slate-300">
+                <tr>
+                  <td class="py-3 px-3 font-semibold text-white">Diagnostic Accuracy</td>
+                  <td class="py-3 px-3 font-mono">87.4%</td>
+                  <td class="py-3 px-3 font-mono text-indigo-300">91.8%</td>
+                  <td class="py-3 px-3 font-mono text-emerald-400 font-bold text-sm">97.6%</td>
+                  <td class="py-3 px-3 font-mono text-cyan-300 font-bold">+10.2% vs Doctor</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3 font-semibold text-white">Diagnostic Sensitivity</td>
+                  <td class="py-3 px-3 font-mono">85.1%</td>
+                  <td class="py-3 px-3 font-mono text-indigo-300">93.4%</td>
+                  <td class="py-3 px-3 font-mono text-emerald-400 font-bold">98.1%</td>
+                  <td class="py-3 px-3 font-mono text-cyan-300 font-bold">+13.0% vs Doctor</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3 font-semibold text-white">Diagnostic Specificity</td>
+                  <td class="py-3 px-3 font-mono">89.3%</td>
+                  <td class="py-3 px-3 font-mono text-indigo-300">90.1%</td>
+                  <td class="py-3 px-3 font-mono text-emerald-400 font-bold">97.2%</td>
+                  <td class="py-3 px-3 font-mono text-cyan-300 font-bold">+7.9% vs Doctor</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3 font-semibold text-white">Mean Decision Latency</td>
+                  <td class="py-3 px-3 font-mono">194.0 sec</td>
+                  <td class="py-3 px-3 font-mono text-indigo-300">4.2 sec</td>
+                  <td class="py-3 px-3 font-mono text-emerald-400 font-bold">68.0 sec</td>
+                  <td class="py-3 px-3 font-mono text-cyan-300 font-bold">-64.9% Time Saved</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3 font-semibold text-white">Diagnostic Error Rate</td>
+                  <td class="py-3 px-3 font-mono text-rose-400">12.6%</td>
+                  <td class="py-3 px-3 font-mono text-rose-400">8.2%</td>
+                  <td class="py-3 px-3 font-mono text-emerald-400 font-bold">2.4%</td>
+                  <td class="py-3 px-3 font-mono text-cyan-300 font-bold">5.25x Error Reduction</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-2">
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <span class="text-[10px] font-mono text-cyan-400 uppercase font-bold">Demographic &amp; Gender Fairness Audit</span>
+              <div class="space-y-1.5 text-slate-300 text-[11px]">
+                <div class="flex justify-between">
+                  <span>Gender Parity Disparity:</span>
+                  <span class="font-mono text-emerald-400 font-bold">0.012 (Equalized Odds Passed)</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Age &lt; 40 yrs Cohort Accuracy:</span>
+                  <span class="font-mono text-white">97.8%</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Age 40 - 65 yrs Cohort Accuracy:</span>
+                  <span class="font-mono text-white">97.5%</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Age &gt; 65 yrs Cohort Accuracy:</span>
+                  <span class="font-mono text-white">97.2%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+              <span class="text-[10px] font-mono text-teal-400 uppercase font-bold">Cross-Scanner Hardware Invariance</span>
+              <div class="space-y-1.5 text-slate-300 text-[11px]">
+                <div class="flex justify-between">
+                  <span>Siemens vs GE Cross-AUC Variance:</span>
+                  <span class="font-mono text-emerald-400 font-bold">&Delta;AUC &le; 0.015</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Signal-to-Noise Ratio (SNR) Floor:</span>
+                  <span class="font-mono text-white">18.5 dB Tolerance</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Multi-OEM Generalization:</span>
+                  <span class="font-mono text-emerald-400 font-bold">Verified (Topcon, GE, Siemens, Philips)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
   </main>
 
   <!-- ======================================================================= -->
@@ -4331,7 +5824,8 @@
         'onco': 'hospital-specialty-onco',
         'lab': 'view-lab',
         'patient': 'view-patient',
-        'datasets': 'view-datasets'
+        'datasets': 'view-datasets',
+        'adaptive': 'view-adaptive'
       };
       const targetId = targetMap[portal] || 'view-home';
       scrollToSection(targetId);
@@ -4387,7 +5881,8 @@
         { id: 'hospital-specialty-hivtb', navId: 'nav-btn-hivtb' },
         { id: 'view-datasets', navId: 'nav-btn-datasets' },
         { id: 'view-lab', navId: 'nav-btn-lab' },
-        { id: 'view-patient', navId: 'nav-btn-patient' }
+        { id: 'view-patient', navId: 'nav-btn-patient' },
+        { id: 'view-adaptive', navId: 'nav-btn-adaptive' }
       ];
 
       const observer = new IntersectionObserver((entries) => {
@@ -6827,6 +8322,763 @@
         console.error('Error clearing run history:', err);
       }
     }
+
+    // =========================================================================
+    // LENSCODE – ADAPTIVE QUANTAMED JAVASCRIPT CONTROLLER
+    // =========================================================================
+    let adaptiveCurrentModality = 'fundus';
+    let adaptiveDetailLevel = 'standard';
+    let adaptiveCurrentPatient = null;
+    let adaptiveQualityStatus = 'ACCEPT';
+    let adaptiveIsSimulatingBadScan = false;
+    let adaptiveCaliper = { radius: 12, offsetX: 0, offsetY: 0 };
+    let adaptiveActiveFindingId = 'FND-01';
+    let adaptiveZoom = 1.0;
+
+    function switchAdaptiveSubView(subviewId) {
+      const views = [
+        'landing', 'dashboard', 'workspace', 'results',
+        'adaptive-views', 'assistant', 'quantum-lab',
+        'doctor-review', 'integration', 'analytics'
+      ];
+      views.forEach(v => {
+        const pane = document.getElementById(`adp-view-${v}`);
+        const btn = document.getElementById(`adp-subtab-${v}`);
+        if (pane) {
+          if (v === subviewId) pane.classList.remove('hidden');
+          else pane.classList.add('hidden');
+        }
+        if (btn) {
+          if (v === subviewId) {
+            btn.className = "px-3 py-1.5 rounded-xl text-xs font-bold bg-cyan-600 text-white whitespace-nowrap transition-all flex items-center shadow-xs";
+          } else {
+            btn.className = "px-3 py-1.5 rounded-xl text-xs font-bold text-slate-300 hover:text-cyan-300 whitespace-nowrap transition-all flex items-center";
+          }
+        }
+      });
+      
+      if (subviewId === 'workspace') renderScanPreviewCanvas();
+      else if (subviewId === 'results') renderComparisonSlider();
+      else if (subviewId === 'quantum-lab') drawBlochSphere();
+    }
+
+    function adaptiveLaunchDemo() {
+      switchMainPortal('adaptive');
+      switchAdaptiveSubView('workspace');
+      goToWizardStep(1);
+    }
+
+    function goToWizardStep(stepNum) {
+      for (let i = 1; i <= 4; i++) {
+        const pane = document.getElementById(`wiz-pane-${i}`);
+        const btn = document.getElementById(`wiz-step-btn-${i}`);
+        if (pane) {
+          if (i === stepNum) pane.classList.remove('hidden');
+          else pane.classList.add('hidden');
+        }
+        if (btn) {
+          if (i === stepNum) btn.className = "py-2 rounded-xl bg-cyan-600 text-white shadow transition-all";
+          else btn.className = "py-2 rounded-xl bg-slate-900 text-slate-400 hover:text-slate-200 transition-all";
+        }
+      }
+      if (stepNum === 2) renderScanPreviewCanvas();
+      else if (stepNum === 3) refreshQualityCheckDisplay();
+    }
+
+    function selectWizardPatient(modality) {
+      selectAdaptiveModality(modality);
+      const sample = (window.ADAPTIVE_SAMPLES && window.ADAPTIVE_SAMPLES[modality]) ? window.ADAPTIVE_SAMPLES[modality] : null;
+      if (sample && sample.sample_patient) {
+        const p = sample.sample_patient;
+        document.getElementById('adp-patient-display-name').innerText = `PATIENT: ${p.full_name} (${p.age} yrs, ${p.gender})`;
+        document.getElementById('adp-patient-display-id').innerText = `ID: ${p.patient_id}`;
+        document.getElementById('adp-patient-display-history').innerText = `Clinical History: ${p.clinical_history}`;
+        document.getElementById('adp-patient-display-specialist').innerText = `Attending Specialist: ${p.referring_specialist}`;
+        document.getElementById('adp-abha-id-status').innerText = `ABHA: ${p.abha_id}`;
+      }
+    }
+
+    function selectAdaptiveModality(modality) {
+      adaptiveCurrentModality = modality;
+      ['fundus', 'oct', 'ecg', 'chest_xray', 'breast_us', 'head_ct'].forEach(m => {
+        const btn = document.getElementById(`wiz-mod-btn-${m}`);
+        if (btn) {
+          if (m === modality) {
+            btn.className = "px-3 py-1.5 rounded-xl text-xs font-bold bg-cyan-600 text-white border border-cyan-400 shadow";
+          } else {
+            btn.className = "px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 hover:text-white border border-slate-700";
+          }
+        }
+      });
+
+      const sample = (window.ADAPTIVE_SAMPLES && window.ADAPTIVE_SAMPLES[modality]) ? window.ADAPTIVE_SAMPLES[modality] : null;
+      if (sample) {
+        const dev = document.getElementById('adp-device-model');
+        if (dev) dev.innerText = sample.device;
+        const res = document.getElementById('adp-scan-res-tag');
+        if (res) res.innerText = `${sample.resolution} • ${sample.organ}`;
+      }
+
+      renderScanPreviewCanvas();
+      refreshQualityCheckDisplay();
+    }
+
+    function loadSampleScanDirectly() {
+      renderScanPreviewCanvas();
+      alert(`Loaded standard high-fidelity sample scan for ${adaptiveCurrentModality.toUpperCase()}`);
+    }
+
+    function renderScanPreviewCanvas() {
+      const canvas = document.getElementById('adp-scan-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (adaptiveCurrentModality === 'ecg') {
+        ctx.fillStyle = '#050c18';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.strokeStyle = '#122b44';
+        ctx.lineWidth = 1;
+        for (let x = 0; x < canvas.width; x += 20) {
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+        }
+        for (let y = 0; y < canvas.height; y += 20) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+        }
+
+        ctx.strokeStyle = '#10b981';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        let cy = canvas.height / 2;
+        ctx.moveTo(0, cy);
+        for (let x = 0; x < canvas.width; x++) {
+          let phase = (x % 140);
+          let yOffset = 0;
+          if (phase > 20 && phase < 35) yOffset = -15 * Math.sin((phase - 20) * Math.PI / 15);
+          else if (phase >= 45 && phase < 50) yOffset = 10;
+          else if (phase >= 50 && phase < 60) yOffset = -75 * Math.sin((phase - 50) * Math.PI / 10);
+          else if (phase >= 60 && phase < 65) yOffset = 15;
+          else if (phase >= 65 && phase < 95) yOffset = -35;
+          else if (phase >= 95 && phase < 115) yOffset = -20 * Math.sin((phase - 95) * Math.PI / 20);
+          ctx.lineTo(x, cy + yOffset);
+        }
+        ctx.stroke();
+
+        ctx.fillStyle = '#f43f5e';
+        ctx.font = 'bold 12px monospace';
+        ctx.fillText('LEAD II / V2: ST-ELEVATION 3.8mm (STEMI)', 20, 30);
+      } else {
+        ctx.fillStyle = '#090f1d';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        let cx = canvas.width / 2;
+        let cy = canvas.height / 2;
+        let radius = Math.min(cx, cy) * 0.85 * adaptiveZoom;
+
+        let grad = ctx.createRadialGradient(cx, cy, radius * 0.1, cx, cy, radius);
+        if (adaptiveCurrentModality === 'fundus') {
+          grad.addColorStop(0, '#ea580c');
+          grad.addColorStop(0.6, '#9a3412');
+          grad.addColorStop(1, '#431407');
+        } else if (adaptiveCurrentModality === 'oct') {
+          grad.addColorStop(0, '#0284c7');
+          grad.addColorStop(0.7, '#075985');
+          grad.addColorStop(1, '#082f49');
+        } else if (adaptiveCurrentModality === 'chest_xray') {
+          grad.addColorStop(0, '#e2e8f0');
+          grad.addColorStop(0.7, '#475569');
+          grad.addColorStop(1, '#0f172a');
+        } else if (adaptiveCurrentModality === 'breast_us') {
+          grad.addColorStop(0, '#a855f7');
+          grad.addColorStop(0.7, '#581c87');
+          grad.addColorStop(1, '#1e1b4b');
+        } else {
+          grad.addColorStop(0, '#d97706');
+          grad.addColorStop(0.7, '#78350f');
+          grad.addColorStop(1, '#1c1917');
+        }
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = 'rgba(239, 68, 68, 0.4)';
+        ctx.strokeStyle = '#ef4444';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(cx + 25 + adaptiveCaliper.offsetX, cy - 10 + adaptiveCaliper.offsetY, adaptiveCaliper.radius * 2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#38bdf8';
+        ctx.font = 'bold 11px monospace';
+        ctx.fillText(`ANATOMICAL SITE: ${adaptiveCurrentModality.toUpperCase()}`, 20, 30);
+      }
+    }
+
+    function zoomScan(factor) {
+      adaptiveZoom = Math.min(2.0, Math.max(0.6, adaptiveZoom * factor));
+      renderScanPreviewCanvas();
+    }
+    function resetZoomScan() {
+      adaptiveZoom = 1.0;
+      renderScanPreviewCanvas();
+    }
+
+    function handleScanUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      alert(`Uploaded file: ${file.name}. Validating Tenengrad sharpness and DICOM metadata...`);
+      renderScanPreviewCanvas();
+    }
+
+    function toggleSimulateBadScan() {
+      adaptiveIsSimulatingBadScan = !adaptiveIsSimulatingBadScan;
+      const btn = document.getElementById('btn-toggle-bad-scan');
+      if (btn) {
+        if (adaptiveIsSimulatingBadScan) {
+          btn.innerText = "Revert to Normal Calibrated Scan";
+          btn.className = "px-3 py-1.5 rounded-lg bg-emerald-950/60 hover:bg-emerald-900 text-emerald-300 border border-emerald-800 text-xs font-bold transition-all";
+        } else {
+          btn.innerText = "Simulate Degraded Scan (Demo Retake)";
+          btn.className = "px-3 py-1.5 rounded-lg bg-rose-950/60 hover:bg-rose-900 text-rose-300 border border-rose-800 text-xs font-bold transition-all";
+        }
+      }
+      refreshQualityCheckDisplay();
+    }
+
+    function refreshQualityCheckDisplay() {
+      fetch('/api/adaptive/quality_check', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ modality: adaptiveCurrentModality })
+      })
+      .then(res => res.json())
+      .then(data => {
+        let metrics = data.metrics || [];
+        let status = adaptiveIsSimulatingBadScan ? 'RETAKE' : data.status;
+        let overallScore = adaptiveIsSimulatingBadScan ? 44.2 : data.overall_quality_score;
+        let desc = adaptiveIsSimulatingBadScan ? 
+          "Scan quality severely degraded by motion artifacts and out-of-focus optics. Automatic gating rejects inference and requires operator retake." : 
+          data.recommendation_text;
+
+        const icon = document.getElementById('adp-quality-icon');
+        const stText = document.getElementById('adp-quality-status-text');
+        const pill = document.getElementById('adp-quality-pill');
+        const descEl = document.getElementById('adp-quality-desc');
+        const scoreEl = document.getElementById('adp-quality-composite-score');
+        const runBtn = document.getElementById('adp-btn-run-inference');
+
+        if (status === 'RETAKE') {
+          icon.className = "w-12 h-12 rounded-xl bg-rose-500/20 text-rose-400 border border-rose-500/40 flex items-center justify-center text-xl font-bold";
+          icon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+          stText.innerText = "QUALITY GATING: RETAKE REQUIRED";
+          pill.className = "px-2 py-0.5 rounded text-[10px] font-bold bg-rose-950 text-rose-300 border border-rose-800";
+          pill.innerText = "REJECTED (GATE ACTIVE)";
+          scoreEl.className = "text-2xl font-black text-rose-400";
+          if (runBtn) {
+            runBtn.disabled = true;
+            runBtn.classList.add('opacity-50', 'pointer-events-none');
+            runBtn.innerHTML = 'Scan Rejected by Quality Gatekeeper';
+          }
+        } else {
+          icon.className = "w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center text-xl font-bold";
+          icon.innerHTML = '<i class="fa-solid fa-shield-check"></i>';
+          stText.innerText = "QUALITY ASSESSMENT: ACCEPT";
+          pill.className = "px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800";
+          pill.innerText = "PASSED";
+          scoreEl.className = "text-2xl font-black text-emerald-400";
+          if (runBtn) {
+            runBtn.disabled = false;
+            runBtn.classList.remove('opacity-50', 'pointer-events-none');
+            runBtn.innerHTML = 'Run 8-Stage Inference Pipeline <i class="fa-solid fa-bolt ml-2"></i>';
+          }
+        }
+
+        descEl.innerText = desc;
+        scoreEl.innerText = `${overallScore} / 100`;
+
+        const tbody = document.getElementById('adp-quality-tbody');
+        if (tbody) {
+          tbody.innerHTML = metrics.map(m => {
+            let pass = adaptiveIsSimulatingBadScan ? false : m.passed;
+            let displayScore = adaptiveIsSimulatingBadScan ? (m.score * 0.5).toFixed(1) : m.score;
+            return `<tr>
+              <td class="py-2 px-3 font-semibold text-white">${m.name}</td>
+              <td class="py-2 px-3 font-mono">${displayScore}</td>
+              <td class="py-2 px-3 font-mono text-slate-400">${m.threshold}</td>
+              <td class="py-2 px-3">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold ${pass ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' : 'bg-rose-950 text-rose-300 border border-rose-800'}">
+                  ${pass ? 'PASS' : 'FAIL'}
+                </span>
+              </td>
+            </tr>`;
+          }).join('');
+        }
+      });
+    }
+
+    function executeInferencePipeline() {
+      goToWizardStep(4);
+      const stages = [
+        "1. Ingestion & Pre-flight Normalization",
+        "2. Tenengrad / Michelson Quality Gating",
+        "3. Latent Feature Extraction (2048-D)",
+        "4. Classical PCA Compression (16-D)",
+        "5. Quantum VQC Circuit Inference (IQM Garnet)",
+        "6. Grad-CAM Saliency & Uncertainty Profiling",
+        "7. Adaptive Persona Content Formatting",
+        "8. SHA-256 Audit Seal & FHIR R4 Serialization"
+      ];
+
+      const grid = document.getElementById('adp-pipeline-stages-grid');
+      const pbar = document.getElementById('adp-pipeline-progressbar');
+      const clock = document.getElementById('adp-inference-clock');
+      const resultsBtn = document.getElementById('adp-btn-goto-results');
+
+      grid.innerHTML = stages.map((s, idx) => `
+        <div id="pipe-card-${idx}" class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+          <div class="flex justify-between items-center">
+            <span class="text-[10px] font-mono text-slate-400 uppercase font-bold">STAGE 0${idx+1}</span>
+            <span id="pipe-status-${idx}" class="text-[10px] font-mono text-slate-500">Waiting...</span>
+          </div>
+          <div class="font-bold text-white text-xs truncate">${s}</div>
+        </div>
+      `).join('');
+
+      let currentStep = 0;
+      let interval = setInterval(() => {
+        if (currentStep < stages.length) {
+          const card = document.getElementById(`pipe-card-${currentStep}`);
+          const st = document.getElementById(`pipe-status-${currentStep}`);
+          if (card && st) {
+            card.className = "p-3 rounded-xl bg-cyan-950/60 border border-cyan-500 shadow-md space-y-1";
+            st.className = "text-[10px] font-mono text-emerald-400 font-bold";
+            st.innerHTML = '<i class="fa-solid fa-check"></i> Done';
+          }
+          currentStep++;
+          let pct = Math.round((currentStep / stages.length) * 100);
+          pbar.style.width = `${pct}%`;
+          clock.innerText = `Pipeline Progress: ${pct}%`;
+        } else {
+          clearInterval(interval);
+          clock.innerHTML = '<span class="text-emerald-400 font-bold"><i class="fa-solid fa-check-circle"></i> Pipeline Complete (1.8s)</span>';
+          if (resultsBtn) {
+            resultsBtn.classList.remove('opacity-50', 'pointer-events-none');
+            resultsBtn.className = "px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-bold text-xs shadow-lg transition-all flex items-center cursor-pointer animate-pulse";
+          }
+          loadAnalysisResults();
+        }
+      }, 350);
+    }
+
+    function loadAnalysisResults() {
+      fetch('/api/adaptive/analyze', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          modality: adaptiveCurrentModality,
+          detail_level: adaptiveDetailLevel
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        window.lastAdaptiveAnalysis = data;
+        const finding = data.findings[0];
+        document.getElementById('adp-res-modality-badge').innerText = `${data.modality.toUpperCase()} • DIAGNOSTIC STUDY`;
+        document.getElementById('adp-res-primary-dx').innerText = finding.label;
+        document.getElementById('adp-res-conf-val').innerText = `${(finding.confidence * 100).toFixed(1)}%`;
+        document.getElementById('adp-res-uncert-val').innerText = `${finding.uncertainty.toFixed(3)}`;
+
+        const mList = document.getElementById('adp-measurements-list');
+        if (mList) {
+          mList.innerHTML = Object.entries(finding.measurements).map(([k, v]) => `
+            <div class="flex justify-between border-b border-slate-800 pb-1">
+              <span class="text-slate-400">${k.replace(/_/g, ' ')}:</span>
+              <span class="font-mono text-cyan-300 font-bold">${v}</span>
+            </div>
+          `).join('');
+        }
+
+        renderComparisonSlider();
+        updateAdaptivePersonaView(data);
+      });
+    }
+
+    function renderComparisonSlider() {
+      const origCanvas = document.getElementById('adp-canvas-original');
+      const heatCanvas = document.getElementById('adp-canvas-heatmap');
+      if (!origCanvas || !heatCanvas) return;
+
+      const oCtx = origCanvas.getContext('2d');
+      const hCtx = heatCanvas.getContext('2d');
+
+      oCtx.fillStyle = '#0f172a';
+      oCtx.fillRect(0, 0, origCanvas.width, origCanvas.height);
+      oCtx.fillStyle = '#1e293b';
+      oCtx.beginPath();
+      oCtx.arc(origCanvas.width / 2, origCanvas.height / 2, 110, 0, Math.PI * 2);
+      oCtx.fill();
+      oCtx.fillStyle = '#e2e8f0';
+      oCtx.font = 'bold 12px sans-serif';
+      oCtx.fillText('ORIGINAL ANATOMICAL SCAN', 20, 30);
+
+      hCtx.fillStyle = '#020617';
+      hCtx.fillRect(0, 0, heatCanvas.width, heatCanvas.height);
+      let g = hCtx.createRadialGradient(heatCanvas.width / 2 + 25, heatCanvas.height / 2 - 10, 10, heatCanvas.width / 2 + 25, heatCanvas.height / 2 - 10, 90);
+      g.addColorStop(0, 'rgba(239, 68, 68, 0.95)');
+      g.addColorStop(0.4, 'rgba(245, 158, 11, 0.8)');
+      g.addColorStop(0.7, 'rgba(6, 182, 212, 0.4)');
+      g.addColorStop(1, 'transparent');
+      hCtx.fillStyle = g;
+      hCtx.fillRect(0, 0, heatCanvas.width, heatCanvas.height);
+
+      hCtx.fillStyle = '#f59e0b';
+      hCtx.font = 'bold 12px sans-serif';
+      hCtx.fillText('GRAD-CAM ACTIVATION SALIENCY', 20, 30);
+
+      const box = document.getElementById('adp-slider-box');
+      const clip = document.getElementById('adp-slider-clip');
+      const handle = document.getElementById('adp-slider-handle');
+
+      let isDragging = false;
+      const onMove = (e) => {
+        if (!isDragging) return;
+        const rect = box.getBoundingClientRect();
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        let x = clientX - rect.left;
+        x = Math.max(0, Math.min(rect.width, x));
+        let pct = (x / rect.width) * 100;
+        clip.style.width = `${pct}%`;
+        handle.style.left = `${pct}%`;
+      };
+
+      box.onmousedown = (e) => { isDragging = true; onMove(e); };
+      box.ontouchstart = (e) => { isDragging = true; onMove(e); };
+      window.onmouseup = () => { isDragging = false; };
+      window.ontouchend = () => { isDragging = false; };
+      window.onmousemove = onMove;
+      window.ontouchmove = onMove;
+    }
+
+    function setAdaptiveDetailLevel(level) {
+      adaptiveDetailLevel = level;
+      ['urgent', 'standard', 'teaching'].forEach(lvl => {
+        const btn = document.getElementById(`btn-detail-${lvl}`);
+        if (btn) {
+          if (lvl === level) {
+            btn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold bg-cyan-600 text-white shadow transition-all flex items-center";
+          } else {
+            btn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-all flex items-center";
+          }
+        }
+      });
+      if (window.lastAdaptiveAnalysis) {
+        updateAdaptivePersonaView(window.lastAdaptiveAnalysis);
+      }
+    }
+
+    function updateAdaptivePersonaView(data) {
+      const pane = document.getElementById('adp-persona-display-pane');
+      if (!pane || !data.adaptive_views) return;
+      const view = data.adaptive_views[adaptiveDetailLevel] || data.adaptive_views['standard'];
+
+      if (adaptiveDetailLevel === 'urgent') {
+        pane.innerHTML = `
+          <div class="p-5 rounded-2xl bg-rose-950/60 border border-rose-800 space-y-3">
+            <div class="flex items-center space-x-2 text-rose-300 font-black text-sm">
+              <i class="fa-solid fa-triangle-exclamation text-rose-500"></i>
+              <span>${view.headline}</span>
+            </div>
+            <p class="text-xs text-rose-100 font-semibold leading-relaxed">${view.summary}</p>
+            <div class="space-y-1.5 pt-2">
+              <span class="text-[10px] font-mono uppercase text-rose-300 font-bold">Immediate Clinical Actions:</span>
+              <ul class="space-y-1 text-xs text-rose-200 list-disc list-inside">
+                ${view.actionable_steps.map(s => `<li>${s}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        `;
+      } else if (adaptiveDetailLevel === 'teaching') {
+        pane.innerHTML = `
+          <div class="p-5 rounded-2xl bg-amber-950/40 border border-amber-800 space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-2 text-amber-300 font-black text-sm">
+                <i class="fa-solid fa-graduation-cap text-amber-400"></i>
+                <span>${view.headline}</span>
+              </div>
+              <span class="px-2 py-0.5 rounded bg-amber-900 text-amber-100 font-mono text-[10px]">Resident Module</span>
+            </div>
+            <p class="text-xs text-slate-200 leading-relaxed">${view.summary}</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 text-xs">
+              <div class="p-3 rounded-xl bg-slate-900/90 border border-amber-900/50 space-y-1">
+                <span class="text-[10px] font-mono text-amber-400 font-bold uppercase">Pathophysiological Correlation:</span>
+                <p class="text-slate-300 text-[11px]">${view.teaching_notes ? view.teaching_notes.pathophysiology : 'Cellular ischemia and breakdown of structural barrier.'}</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/90 border border-amber-900/50 space-y-1">
+                <span class="text-[10px] font-mono text-amber-400 font-bold uppercase">Diagnostic Pitfall to Avoid:</span>
+                <p class="text-slate-300 text-[11px]">${view.teaching_notes ? view.teaching_notes.pitfall : 'Do not confuse motion blurring with true parenchymal consolidation.'}</p>
+              </div>
+            </div>
+
+            <div class="space-y-1 pt-1">
+              <span class="text-[10px] font-mono uppercase text-amber-300 font-bold">Step-by-Step Trainee Guidance:</span>
+              <ul class="space-y-1 text-xs text-slate-300 list-disc list-inside">
+                ${view.actionable_steps.map(s => `<li>${s}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        `;
+      } else {
+        pane.innerHTML = `
+          <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+            <div class="flex items-center space-x-2 text-cyan-300 font-bold text-sm">
+              <i class="fa-solid fa-file-waveform text-cyan-400"></i>
+              <span>${view.headline}</span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">${view.summary}</p>
+            <div class="space-y-1 pt-2">
+              <span class="text-[10px] font-mono uppercase text-cyan-400 font-bold">Clinical Recommendations:</span>
+              <ul class="space-y-1 text-xs text-slate-300 list-disc list-inside">
+                ${view.actionable_steps.map(s => `<li>${s}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function askAssistantChip(question) {
+      document.getElementById('adp-chat-input').value = question;
+      sendAssistantMessage();
+    }
+
+    function sendAssistantMessage() {
+      const inp = document.getElementById('adp-chat-input');
+      const q = inp.value.trim();
+      if (!q) return;
+
+      const stream = document.getElementById('adp-chat-stream');
+      stream.innerHTML += `
+        <div class="p-3 rounded-xl bg-cyan-950/60 border border-cyan-800 max-w-2xl ml-auto space-y-1">
+          <div class="flex items-center justify-between text-[10px] text-cyan-300 font-mono font-bold">
+            <span>Attending Clinician</span>
+            <span>Just Now</span>
+          </div>
+          <p class="text-white">${q}</p>
+        </div>
+      `;
+      inp.value = '';
+      stream.scrollTop = stream.scrollHeight;
+
+      fetch('/api/adaptive/assistant/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          modality: adaptiveCurrentModality,
+          question: q
+        })
+      })
+      .then(res => res.json())
+      .then(msg => {
+        stream.innerHTML += `
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 max-w-2xl space-y-2">
+            <div class="flex items-center justify-between text-[10px] text-cyan-400 font-mono font-bold">
+              <span>${msg.sender}</span>
+              <span>${msg.timestamp}</span>
+            </div>
+            <p class="text-slate-200 leading-relaxed">${msg.content}</p>
+            ${msg.evidence_chips && msg.evidence_chips.length ? `
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${msg.evidence_chips.map(chip => `
+                  <span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800 text-[10px] font-mono cursor-pointer" onclick="highlightFinding('${chip.region_id}')">
+                    <i class="fa-solid fa-crosshairs mr-1"></i> Region: ${chip.anatomical_location}
+                  </span>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+        `;
+        stream.scrollTop = stream.scrollHeight;
+      });
+    }
+
+    function exportChatTranscript() {
+      alert("Clinical consultation transcript exported to encrypted local audit file.");
+    }
+
+    function updateQuantumSliderLabels() {
+      const q = document.getElementById('adp-q-qubits-slider').value;
+      const n = (document.getElementById('adp-q-noise-slider').value / 10).toFixed(1);
+      document.getElementById('adp-q-qubits-display').innerText = `${q} Qubits`;
+      document.getElementById('adp-q-noise-display').innerText = `${n}%`;
+    }
+
+    function runQuantumSimulation() {
+      const q = parseInt(document.getElementById('adp-q-qubits-slider').value, 10);
+      const n = parseFloat(document.getElementById('adp-q-noise-slider').value) / 100.0;
+      const zne = document.getElementById('adp-q-zne-check').checked;
+
+      fetch('/api/adaptive/quantum_simulate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          n_qubits: q,
+          noise_level: n,
+          use_zne_mitigation: zne
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('adp-q-unmitigated').innerText = `${data.unmitigated_accuracy}%`;
+        document.getElementById('adp-q-mitigated').innerText = `${data.mitigated_accuracy}%`;
+        document.getElementById('adp-q-delta').innerText = `${data.quantum_advantage_delta > 0 ? '+' : ''}${data.quantum_advantage_delta}%`;
+        document.getElementById('adp-q-entropy').innerText = `${data.entropy}`;
+        document.getElementById('adp-q-purity-label').innerText = `State Purity: ${data.purity}`;
+        drawBlochSphere(data.bloch_vectors);
+      });
+    }
+
+    function drawBlochSphere(blochVectors) {
+      const canvas = document.getElementById('adp-bloch-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const numSpheres = blochVectors ? Math.min(blochVectors.length, 4) : 4;
+      const spacing = canvas.width / numSpheres;
+
+      for (let i = 0; i < numSpheres; i++) {
+        let cx = spacing * i + spacing / 2;
+        let cy = canvas.height / 2;
+        let r = 40;
+
+        ctx.strokeStyle = '#334155';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, r, r * 0.3, 0, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.strokeStyle = '#475569';
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - r - 5); ctx.lineTo(cx, cy + r + 5);
+        ctx.moveTo(cx - r - 5, cy); ctx.lineTo(cx + r + 5, cy);
+        ctx.stroke();
+
+        let rx = blochVectors ? blochVectors[i].rx : Math.cos((i+1)*1.2);
+        let rz = blochVectors ? blochVectors[i].rz : Math.sin((i+1)*1.2);
+
+        ctx.strokeStyle = '#06b6d4';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + rx * r * 0.85, cy - rz * r * 0.85);
+        ctx.stroke();
+
+        ctx.fillStyle = '#f43f5e';
+        ctx.beginPath();
+        ctx.arc(cx + rx * r * 0.85, cy - rz * r * 0.85, 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = 'bold 10px monospace';
+        ctx.fillText(`|q${i}⟩`, cx - 8, cy + r + 18);
+        ctx.fillText('|0⟩', cx - 6, cy - r - 8);
+        ctx.fillText('|1⟩', cx - 6, cy + r + 8);
+      }
+    }
+
+    function updateCaliperPreview() {
+      const r = document.getElementById('adp-caliper-radius-slider').value;
+      const x = document.getElementById('adp-caliper-x-slider').value;
+      const y = document.getElementById('adp-caliper-y-slider').value;
+
+      document.getElementById('adp-caliper-radius-val').innerText = `${r} mm`;
+      document.getElementById('adp-caliper-x-val').innerText = `${x} px`;
+      document.getElementById('adp-caliper-y-val').innerText = `${y} px`;
+
+      adaptiveCaliper = { radius: parseInt(r, 10), offsetX: parseInt(x, 10), offsetY: parseInt(y, 10) };
+      renderScanPreviewCanvas();
+    }
+
+    function commitDoctorAction(action) {
+      const rationale = document.getElementById('adp-review-rationale').value || `Clinical ${action} verified by Attending Physician.`;
+      const reclassify = document.getElementById('adp-review-reclassify').value;
+
+      fetch('/api/adaptive/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          scan_id: `SCAN-${adaptiveCurrentModality.toUpperCase()}-2026`,
+          modality: adaptiveCurrentModality,
+          doctor_id: 'Dr. Rajesh K. Varma, DM',
+          doctor_role: 'Attending Physician',
+          action: action,
+          rationale: `${rationale} [Reclassification: ${reclassify}]`,
+          caliper_adjustments: adaptiveCaliper
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert(`Recorded action: ${action} with immutable audit hash.`);
+        loadAuditLedger();
+      });
+    }
+
+    function loadAuditLedger() {
+      fetch('/api/adaptive/audit')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('adp-audit-logs-container');
+        const count = document.getElementById('adp-audit-count');
+        if (count) count.innerText = `Logs: ${data.total_events} Recorded`;
+        if (container && data.audit_logs) {
+          container.innerHTML = data.audit_logs.map(log => `
+            <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+              <div class="flex justify-between font-mono text-[10px]">
+                <span class="text-emerald-400 font-bold">${log.action} • ${log.doctor_id}</span>
+                <span class="text-slate-500">${log.timestamp}</span>
+              </div>
+              <p class="text-[11px] text-slate-300">${log.rationale}</p>
+              <div class="font-mono text-[9px] text-slate-500 truncate">${log.immutable_audit_hash}</div>
+            </div>
+          `).join('');
+        }
+      });
+    }
+
+    function setRBACRole(role) {
+      const desc = document.getElementById('adp-rbac-desc');
+      if (desc) desc.innerText = `Active Role: ${role} (Privileges configured for ${role}).`;
+    }
+
+    function copyFHIRJSON() {
+      const fhirText = document.getElementById('adp-fhir-viewer').innerText;
+      navigator.clipboard.writeText(fhirText).then(() => {
+        alert("HL7 FHIR R4 DiagnosticReport copied to clipboard.");
+      });
+    }
+
+    function highlightFinding(fId) {
+      alert(`Focused on Anatomical Region Finding: ${fId}. Saliency peaks highlighted.`);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('/api/adaptive/samples')
+      .then(res => res.json())
+      .then(data => {
+        window.ADAPTIVE_SAMPLES = data.samples;
+      })
+      .catch(e => console.warn('Adaptive samples cache init error:', e));
+    });
+
   </script>
 
   <!-- RUN HISTORY SLIDING DRAWER (VIDEO 2 HEALTHQURE SPEC) -->

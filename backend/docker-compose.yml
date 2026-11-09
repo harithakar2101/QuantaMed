@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  adaptive-quantamed-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: adaptive_quantamed_api
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
